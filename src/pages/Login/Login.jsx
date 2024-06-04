@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
@@ -13,21 +13,13 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-
-console.log(location.state);
-
-
-    // useEffect(() => {
-    //     loadCaptchaEnginge(6);
-    // })
-
+    
     // handle login form value
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        const userInfo = { email, password }
 
         logIn(email, password)
             .then(result => {
@@ -42,7 +34,7 @@ console.log(location.state);
     return (
         <div>
             <Helmet>
-                <title>Bistro Boss || Login</title>
+                <title>TeachEm || Login</title>
             </Helmet>
             <section className="bg-white dark:bg-gray-900">
                 <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">

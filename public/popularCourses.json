@@ -1,0 +1,72 @@
+[
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Introduction to Python",
+        "teacher_name": "John Doe",
+        "rating": 4.5,
+        "price": 49.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Advanced JavaScript",
+        "teacher_name": "Jane Smith",
+        "rating": 4.7,
+        "price": 59.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Data Science with R",
+        "teacher_name": "Emily Davis",
+        "rating": 4.8,
+        "price": 69.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Web Development Bootcamp",
+        "teacher_name": "Michael Brown",
+        "rating": 4.6,
+        "price": 79.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Machine Learning A-Z",
+        "teacher_name": "Sarah Wilson",
+        "rating": 4.9,
+        "price": 89.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Graphic Design Masterclass",
+        "teacher_name": "David Lee",
+        "rating": 4.3,
+        "price": 39.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Digital Marketing 101",
+        "teacher_name": "Linda Johnson",
+        "rating": 4.4,
+        "price": 29.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Cyber Security Essentials",
+        "teacher_name": "Chris Martinez",
+        "rating": 4.6,
+        "price": 99.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "AWS Certified Solutions Architect",
+        "teacher_name": "Amy Garcia",
+        "rating": 4.7,
+        "price": 109.99
+    },
+    {
+        "image": "https://i.ibb.co/3SBYPLj/banner.jpg",
+        "course_name": "Business Analytics with Excel",
+        "teacher_name": "James Wilson",
+        "rating": 4.5,
+        "price": 34.99
+    }
+]

@@ -6,11 +6,11 @@ import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import {  updateProfile } from "firebase/auth";
-// import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
     const {creatUser,setUser} = useAuth()
-    // const axiosPublic = useAxiosPublic()
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
     const {register,reset, handleSubmit,formState: { errors },} = useForm()
@@ -18,7 +18,7 @@ const SignUp = () => {
 
 
     const onSubmit = (data) =>{
-        console.log(data);
+
     // createUser
     creatUser(data.email, data.password)
     .then(result=>{
@@ -28,26 +28,29 @@ const SignUp = () => {
         updateProfile(data.name, data.photo)
         setUser({ ...loggendUser, photoURL: data.photo, displayName: data.name })
 
-        // const userInfo = {
-        //     name: data.name,
-        //     email: data.email
-        // }
-        // // user info send to mongodb
-        // axiosPublic.post('/user/api/create', userInfo)
-        // .then(res => {
-        //     if (res.data.insertedId) {
-        //         reset();
-        //        toast.success('User Created Successfully')
-        //         navigate('/');
-        //     }
-        // })
+        const userInfo = {
+            name: data.name,
+            email: data.email,
+            photo: data.photo,
+            role: 'student',
+
+        }
+        // user info send to mongodb
+        axiosPublic.post('/user/api/create', userInfo)
+        .then(res => {
+            if (res.data.insertedId) {
+                reset();
+               toast.success('User Created Successfully')
+                navigate('/');
+            }
+        })
     })
     }
 
     return (
         <div>
             <Helmet>
-                <title>Bistro Boss || Sign Up</title>
+                <title>TeachEm || Sign Up</title>
             </Helmet>
             <section className="bg-white dark:bg-gray-900">
                 <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">

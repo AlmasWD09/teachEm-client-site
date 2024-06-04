@@ -5,6 +5,17 @@ import AllClassess from "../pages/AllClassess/AllClassess";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import TeachOn from "../pages/TeachOn/TeachOn";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import MyEnrollClass from "../pages/Dashboard/Student/MyEnrollClass/MyEnrollClass";
+import StudentProfile from "../pages/Dashboard/Student/StudentProfile/StudentProfile";
+import MyEnrollDetails from "../pages/Dashboard/Student/MyEnrollDetails/MyEnrollDetails";
+import AddClass from "../pages/Dashboard/Teacher/AddClass/AddClass";
+import MyClass from "../pages/Dashboard/Teacher/MyClass/MyClass";
+import TeacherProfile from "../pages/Dashboard/Teacher/TeacherProfile/TeacherProfile";
+import TeacherRequest from "../pages/Dashboard/Admin/TeacherRequest/TeacherRequest";
+import Users from "../pages/Dashboard/Admin/Users/Users";
+import AllClass from "../pages/Dashboard/Admin/AllClass/AllClass";
+import AdminProfile from "../pages/Dashboard/Admin/AdminProfile/AdminProfile";
 
 
 const router = createBrowserRouter([
@@ -34,6 +45,62 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />
+      },
+      // dashboard layouts
+      {
+        path:'/dashboard',
+        element:<DashboardLayout />,
+        children:[
+          //========== student dashboard related routes start ==============
+          {
+            path:'my-enroll-class',
+            element:<MyEnrollClass />
+          },
+          {
+            path:'student-profile',
+            element:<StudentProfile />
+          },
+          {
+            path:'my-enroll-dtails',
+            element:<MyEnrollDetails />
+          },
+          //========== student dashboard related routes end ================
+
+          //========== teacher dashboard related routes start ==============
+          {
+            path:'add-class',
+            element:<AddClass />
+          },
+          {
+            path:'my-class',
+            element:<MyClass />
+          },
+          {
+            path:'teacher-profile',
+            element:<TeacherProfile />
+          },
+          //========== student dashboard related routes end ================
+
+
+          //========== Admin dashboard related routes start ==============
+          {
+            path:'teacher-request',
+            element:<TeacherRequest />
+          },
+          {
+            path:'users',
+            element:<Users />
+          },
+          {
+            path:'all-class',
+            element:<AllClass />
+          },
+          {
+            path:'admin-profile',
+            element:<AdminProfile />
+          },
+          //========== Admin dashboard related routes end ================
+        ]
       },
     ]);
   export default router

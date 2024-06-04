@@ -61,7 +61,7 @@ const Navbar = () => {
                                     All Classes
                                 </NavLink>
                                 <NavLink to='/teach-on' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                    Teach On
+                                    Teach On ThechEm
                                 </NavLink>
 
                                 <NavLink to='/signUp' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -91,7 +91,7 @@ const Navbar = () => {
                                             <div className='justify-between'>{user.displayName}</div>
                                         </li>
                                         <li>
-                                            <div className='justify-between'>Dashboard</div>
+                                            <Link to='/dashboard'><div className='justify-between'>Dashboard</div></Link>
                                         </li>
                                         <li className='mt-2'>
                                             <button

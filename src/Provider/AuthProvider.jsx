@@ -67,6 +67,6 @@ useEffect(()=>{
 };
 // props-type validation
 AuthProvider.propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.array,
 };
 export default AuthProvider;
