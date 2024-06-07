@@ -3,7 +3,8 @@
 const AllClass = () => {
     return (
         <div>
-            <h1>all class page admin</h1>
+            <h1>ai page teacher jokon class add korva. oigola aipage a dakabo</h1>
+            <p>tabule hisaba</p>
         </div>
     );
 };

@@ -6,11 +6,9 @@ import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import {  updateProfile } from "firebase/auth";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
     const {creatUser,setUser} = useAuth()
-    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
     const {register,reset, handleSubmit,formState: { errors },} = useForm()
@@ -23,27 +21,14 @@ const SignUp = () => {
     creatUser(data.email, data.password)
     .then(result=>{
         const loggendUser = result.user 
-
+        toast.success('User Created Successfully')
+        navigate('/')
+        
         // update profile
         updateProfile(data.name, data.photo)
         setUser({ ...loggendUser, photoURL: data.photo, displayName: data.name })
-
-        const userInfo = {
-            name: data.name,
-            email: data.email,
-            photo: data.photo,
-            role: 'student',
-
-        }
-        // user info send to mongodb
-        axiosPublic.post('/user/api/create', userInfo)
-        .then(res => {
-            if (res.data.insertedId) {
-                reset();
-               toast.success('User Created Successfully')
-                navigate('/');
-            }
-        })
+        reset();
+     
     })
     }
 
