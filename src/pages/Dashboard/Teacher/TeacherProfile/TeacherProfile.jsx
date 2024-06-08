@@ -1,9 +1,12 @@
+import Profile from "../../../../components/Profile/Profile";
+
 
 
 const TeacherProfile = () => {
+  
     return (
         <div>
-            <h1>teacher profile page</h1>
+            <Profile />
         </div>
     );
 };
