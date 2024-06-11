@@ -16,6 +16,7 @@ import TeacherRequest from "../pages/Dashboard/Admin/TeacherRequest/TeacherReque
 import Users from "../pages/Dashboard/Admin/Users/Users";
 import AllClass from "../pages/Dashboard/Admin/AllClass/AllClass";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile/AdminProfile";
+import UpdatedModal from "../components/Modal/UpdateModal/UpdatedModal";
 
 
 const router = createBrowserRouter([
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
           {
             path:'add-class',
             element:<AddClass />
+          },
+          {
+            path:'update-class/:id',
+            element:<UpdatedModal />
           },
           {
             path:'my-class',

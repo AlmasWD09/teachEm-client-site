@@ -8,7 +8,7 @@ import useAuth from "../../../../hooks/useAuth";
 const MyClass = () => {
   const{user,loading} = useAuth()
     const [isOpen,setIsOpen] = useState(false)
-    const[classess,isloading] = useClass()
+    const[classess,isloading,refetch] = useClass()
 
     
     const handleUpdate = () =>{
@@ -29,6 +29,7 @@ const MyClass = () => {
             handleUpdate={handleUpdate}
             closeModal={closeModal}
             user={user}
+            refetch={refetch}
             ></MyClassCrud>)
          }
         </div>
