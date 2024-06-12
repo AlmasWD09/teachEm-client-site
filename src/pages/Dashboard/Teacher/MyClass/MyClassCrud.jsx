@@ -1,13 +1,43 @@
 
 import { useState } from 'react'
 import UpdatedModal from "../../../../components/Modal/UpdateModal/UpdatedModal";
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+
 
 
 
 const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
     let [isOpen, setIsOpen] = useState(false)
-    const {  image, title, price, description } = singleClass || {}
+    const axiosSecure = useAxiosSecure()
+    const { _id, image, title, price, description } = singleClass || {}
 
+
+    const handleDelete = (id) =>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: `${title} is deleted to the menu.`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async(result) => {
+            if (result.isConfirmed) {
+                const menuRes = await axiosSecure.delete(`/class/api/delete/${id}`);
+                if(menuRes.data.deletedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: `${title} has been deleted`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
+        });
+    }
     return (
         <div>
             <div className="flex bg-gray-200 rounded-lg shadow-xl dark:bg-gray-800">
@@ -56,7 +86,9 @@ const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
                             closeModal={closeModal}
                             refetch={refetch}
                             />
-                            <button className="btn-xs bg-red-500 text-white">delete</button>
+                            <button 
+                            onClick={()=>handleDelete(_id)}
+                            className="btn-xs bg-red-500 text-white">delete</button>
                         </div>
                     </div>
                 </div>
