@@ -1,9 +1,10 @@
+import Profile from "../../../../components/Profile/Profile";
 
 
 const AdminProfile = () => {
     return (
         <div>
-            <h1>admin profile page</h1>
+            <Profile />
         </div>
     );
 };
