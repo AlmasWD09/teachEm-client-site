@@ -29,7 +29,8 @@ if (res.data.success) {
         title:data.title,
         price: parseFloat(data.price),
         description: data.description,
-        image: res.data.data.display_url
+        image: res.data.data.display_url,
+        email:user?.email
     }
 
     

@@ -8,8 +8,6 @@ import useRole from '../../hooks/useRole';
 const Profile = () => {
   const { user, loading } = useAuth() || {}
   const [role] = useRole()
-
-  console.log(user);
   if (loading) return <p>Loading...</p>
   return (
     <div className='flex justify-center items-center h-screen'>
@@ -31,11 +29,8 @@ const Profile = () => {
             />
           </a>
 
-          <p className='p-2 uppercase px-4 text-xs text-white bg-green-400 rounded-full'>
+          <p className='p-2 uppercase px-4 text-xs text-white bg-green-800 rounded-full'>
             {role}
-          </p>
-          <p className='mt-2 text-xl font-medium text-gray-800 '>
-            User Id: {user?.uid}
           </p>
           <div className='w-full p-2 mt-4 rounded-lg'>
             <div className='flex flex-wrap items-center justify-between text-sm text-gray-600 '>
@@ -51,12 +46,8 @@ const Profile = () => {
               </p>
 
               <div>
-                <button className='bg-primary px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053] block mb-1'>
-                  Update Profile
-                </button>
-                <button className='bg-primary px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053]'>
-                  Change Password
-                </button>
+                <p>Phone</p>
+                <span className='font-bold text-black '>000000000000</span>
               </div>
             </div>
           </div>

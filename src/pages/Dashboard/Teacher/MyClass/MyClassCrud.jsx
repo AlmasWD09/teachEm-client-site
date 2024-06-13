@@ -43,10 +43,9 @@ const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
             <div className="flex bg-gray-200 rounded-lg shadow-xl dark:bg-gray-800">
                 <div className="flex justify-center items-center px-4 ">
                     <div
-                        className="h-40 w-40 rounded-lg"
-                    // style={{ backgroundImage: `${image}` }}
+                        className="w-40 rounded-lg"
                     >
-                        <img src={image} alt="" />
+                        <img className='h-50' src={image} alt="" />
                     </div>
                 </div>
 
