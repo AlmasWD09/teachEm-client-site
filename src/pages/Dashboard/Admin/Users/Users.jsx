@@ -1,10 +1,105 @@
+import { Helmet } from "react-helmet-async";
+import useAuth from "../../../../hooks/useAuth";
+import useAllUser from "../../../../hooks/useAllUser";
 
 
 const Users = () => {
+    const { user } = useAuth()
+    const [users, isloading, refetch] = useAllUser()
+
     return (
-        <div>
-            <h1>users page admin</h1>
-        </div>
+        <>
+            <div className='container mx-auto px-4 sm:px-8'>
+                <Helmet>
+                    <title>TeaceEm || Users</title>
+                </Helmet>
+                <div className='py-8'>
+                    <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
+                        <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
+                            <table className='min-w-full leading-normal'>
+                                <thead>
+                                    <tr>
+                                        <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                        >
+                                            Image
+                                        </th>
+                                        <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                        >
+                                            Email
+                                        </th>
+                                        <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                        >
+                                            Role
+                                        </th>
+                                        <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                        >
+                                            Status
+                                        </th>
+
+                                        <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                        >
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                {
+                                    users?.map(singleUser=><tr key={singleUser._id}>
+                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                            <p className='text-gray-900 whitespace-no-wrap'>{'user-image'}</p>
+                                        </td>
+                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                            <p className='text-gray-900 whitespace-no-wrap'>{singleUser?.email}</p>
+                                        </td>
+                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                            <p className='text-gray-900 whitespace-no-wrap'>{singleUser?.role}</p>
+                                        </td>
+                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                            {singleUser?.status ? (
+                                                <p
+                                                    className={`${singleUser.status === 'Verified' ? 'text-green-500' : 'text-yellow-500'
+                                                        } whitespace-no-wrap`}
+                                                >
+                                                    {singleUser.status}
+                                                </p>
+                                            ) : (
+                                                <p className='text-red-500 whitespace-no-wrap'>Unavailable</p>
+                                            )}
+                                        </td>
+
+                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                            <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
+                                                <span
+                                                    aria-hidden='true'
+                                                    className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
+                                                ></span>
+                                                <span className='relative'>Make Admin</span>
+                                            </span>
+                                            {/* Update User Modal */}
+                                        </td>
+                                    </tr>)
+                                }
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
 

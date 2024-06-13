@@ -17,12 +17,14 @@ import Users from "../pages/Dashboard/Admin/Users/Users";
 import AllClass from "../pages/Dashboard/Admin/AllClass/AllClass";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile/AdminProfile";
 import UpdatedModal from "../components/Modal/UpdateModal/UpdatedModal";
+import NotFound from "../pages/NotFound/NotFound";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
+        errorElement:<NotFound />,
         children: [
           {
             path: '/',
