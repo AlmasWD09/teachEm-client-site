@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 
 
 
-const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
+const MyClassCrud = ({ singleClass, user, closeModal, refetch }) => {
     let [isOpen, setIsOpen] = useState(false)
     const axiosSecure = useAxiosSecure()
-    const { _id, image, title, price, description,status } = singleClass || {}
+    const { _id, image, title, price, description, status } = singleClass || {}
 
 
-    const handleDelete = (id) =>{
+    const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: `${title} is deleted to the menu.`,
@@ -23,10 +23,10 @@ const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        }).then(async(result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
                 const menuRes = await axiosSecure.delete(`/class/api/delete/${id}`);
-                if(menuRes.data.deletedCount > 0) {
+                if (menuRes.data.deletedCount > 0) {
                     refetch();
                     Swal.fire({
                         position: "top-center",
@@ -73,34 +73,27 @@ const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
 
                     <div className="flex justify-between mt-3 items-center">
                         <Link to={`/dashboard/details/${_id}`}>
-                        <button 
-                         className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
-                            Details
-                        </button>
-
-                        {/* <button className={`
-                                px-2 py-1 text-xs font-bold text-red bg-gray-400 cursor-not-allowed uppercase transition-colors duration-300 transform
-                                ${status === 'pending' ? 'disabled' : 'bg-green-500 hover:bg-green-700 focus:outline-none focus:bg-green-600'}
-                                rounded
-                            `} disabled={status === 'pending'}
-                            >
+                            <button
+                                className={`px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform ${status === 'pending' ? 'bg-red-200 cursor-not-allowed' : 'bg-gray-800 hover:bg-gray-700 focus:bg-gray-700'}`}
+                                disabled={status === 'pending'}>
                                 Details
-                            </button> */}
+                            </button>
                         </Link>
+                        
                         <div className="flex gap-3">
                             <button onClick={() => setIsOpen(true)} className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-green-500 rounded dark:bg-green-500 hover:bg-green-500 dark:hover:bg-green-500 focus:outline-none focus:bg-green-500 dark:focus:bg-green-500">update</button>
 
                             {/* update modal */}
-                            <UpdatedModal 
-                            isOpen={isOpen}
-                            setIsOpen={setIsOpen}
-                            singleClass={singleClass}
-                            closeModal={closeModal}
-                            refetch={refetch}
+                            <UpdatedModal
+                                isOpen={isOpen}
+                                setIsOpen={setIsOpen}
+                                singleClass={singleClass}
+                                closeModal={closeModal}
+                                refetch={refetch}
                             />
-                            <button 
-                            onClick={()=>handleDelete(_id)}
-                            className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-red-500 rounded dark:bg-red-500 hover:bg-red-500 dark:hover:bg-red-500 focus:outline-none focus:bg-gray-700 dark:focus:bg-red-500">delete</button>
+                            <button
+                                onClick={() => handleDelete(_id)}
+                                className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-red-500 rounded dark:bg-red-500 hover:bg-red-500 dark:hover:bg-red-500 focus:outline-none focus:bg-gray-700 dark:focus:bg-red-500">delete</button>
                         </div>
                     </div>
                 </div>

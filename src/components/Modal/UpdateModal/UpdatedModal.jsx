@@ -14,7 +14,6 @@ const UpdatedModal = ({singleClass,refetch,closeModal, isOpen, setIsOpen }) => {
 
     const { register, reset, handleSubmit, formState: { errors }, } = useForm()
     const onSubmit = async(data) => {
-        console.log(data);
 
         const updateItem = {
             title:data.title,
@@ -23,9 +22,8 @@ const UpdatedModal = ({singleClass,refetch,closeModal, isOpen, setIsOpen }) => {
         }
     
         
-        const menuRes = await axiosSecure.put(`/class/api/update/${_id}`, updateItem);
-        if (menuRes.data.  modifiedCount > 0) {
-            // reset();
+        const menuRes = await axiosSecure.patch(`/class/api/update/${_id}`, updateItem);
+        if (menuRes.data.modifiedCount > 0) {
             Swal.fire({
                 position: "top-center",
                 icon: "success",
@@ -36,7 +34,6 @@ const UpdatedModal = ({singleClass,refetch,closeModal, isOpen, setIsOpen }) => {
             refetch()
             closeModal()
             setIsOpen(false)
-            navigate('/dashboard/my-class')
             
         }
     }

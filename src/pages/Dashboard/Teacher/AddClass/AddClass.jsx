@@ -49,18 +49,12 @@ if (res.data.success) {
             showConfirmButton: false,
             timer: 1500
         });
+        navigate('/dashboard/my-class')
     }
 }
-// console.log(res.data);
-     
+
     }
 
-    
-
-    // handle add class
-    const handleAddClass = () => {
-        // navigate('/dashboard/my-class')
-    }
     return (
         <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
@@ -104,7 +98,7 @@ if (res.data.success) {
                 </div>
 
                 <div className="flex justify-end mt-6">
-                    <button onClick={handleAddClass} className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Add class</button>
+                    <button  className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Add class</button>
                 </div>
             </form>
         </section>
