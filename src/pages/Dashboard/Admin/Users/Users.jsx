@@ -1,13 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../../../hooks/useAuth";
 import useAllUser from "../../../../hooks/useAllUser";
-import UserRow from "./UserRow";
+
 
 
 const Users = () => {
     const { user } = useAuth()
     const [users] = useAllUser()
-console.log(users);
+
     return (
         <>
             <div className='container mx-auto px-4 sm:px-8'>

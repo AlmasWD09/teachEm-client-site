@@ -1,11 +1,28 @@
 import { Helmet } from "react-helmet-async";
 import useClass from "../../../../hooks/useClass";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+
 
 
 
 const AllClass = () => {
+const axiosSecure = useAxiosSecure()
 const [classess] = useClass()
-console.log(classess);
+
+const handleReject = (id) =>{
+
+    const classInfo = {
+        status:'reject'
+    }
+    const {data} = axiosSecure.patch(`/class/api/status/update/${id}`,classInfo)
+}
+const handleApproved = (id) =>{
+    const classInfo = {
+        status:'acceped'
+    }
+    const {data} = axiosSecure.patch(`/class/api/status/update/${id}`,classInfo)
+
+}
     return (
         <>
         <div className='container mx-auto px-4 sm:px-8'>
@@ -46,6 +63,12 @@ console.log(classess);
                                         scope='col'
                                         className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                     >
+                                        Status
+                                    </th>
+                                    <th
+                                        scope='col'
+                                        className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                    >
                                         Action
                                     </th>
 
@@ -75,6 +98,9 @@ console.log(classess);
                                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                           <p className='text-gray-900 whitespace-no-wrap'>{singleClass.description}</p>
                                       </td>
+                                      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                          <p className='text-gray-900 bg-yellow-200 whitespace-no-wrap px-2'>{singleClass.status}</p>
+                                      </td>
                               
                                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                           <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
@@ -82,7 +108,9 @@ console.log(classess);
                                                   aria-hidden='true'
                                                   className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
                                               ></span>
-                                              <button className='relative'>Approved</button>
+                                              <button 
+                                              onClick={()=>handleApproved(singleClass._id)}
+                                              className='relative'>Approved</button>
                                           </span>
                                       </td>
                                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -91,7 +119,9 @@ console.log(classess);
                                                   aria-hidden='true'
                                                   className='absolute inset-0 bg-red-200 opacity-50 rounded-full'
                                               ></span>
-                                              <button className='relative'>Reaject</button>
+                                              <button 
+                                              onClick={()=>handleReject(singleClass._id)}
+                                              className='relative'>Reaject</button>
                                           </span>
                                       </td>
                                   </tr>)

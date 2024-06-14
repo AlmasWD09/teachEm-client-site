@@ -19,6 +19,9 @@ import AdminProfile from "../pages/Dashboard/Admin/AdminProfile/AdminProfile";
 import UpdatedModal from "../components/Modal/UpdateModal/UpdatedModal";
 import NotFound from "../pages/NotFound/NotFound";
 import Details from "../pages/Dashboard/Teacher/Details/Details";
+import ClassDetails from "../pages/AllClassess/ClassDetails/ClassDetails";
+import PaymantPage from "../pages/PaymantPage/PaymantPage";
+import PrivatRoutes from "./PrivatRoutes";
 
 
 const router = createBrowserRouter([
@@ -36,8 +39,20 @@ const router = createBrowserRouter([
             element: <AllClassess />
           },
           {
+            path: '/class-details/:id',
+            element: <PrivatRoutes>
+              <ClassDetails />
+            </PrivatRoutes>
+          },
+          {
+            path:'/payment-page',
+            element:<PaymantPage />
+          },
+          {
             path:'/teach-on',
-            element:<TeachOn />
+            element:<PrivatRoutes>
+              <TeachOn />
+            </PrivatRoutes>
           },
         ],
       },

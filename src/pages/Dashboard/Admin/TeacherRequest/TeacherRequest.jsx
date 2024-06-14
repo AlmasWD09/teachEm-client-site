@@ -5,7 +5,7 @@ import useRequeste from "../../../../hooks/useRequeste";
 
 const TeacherRequest = () => {
   const [requestData] = useRequeste()
-  console.log(requestData);
+
     return (
         <>
         <div className='container mx-auto px-4 sm:px-8'>
