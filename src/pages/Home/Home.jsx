@@ -1,4 +1,5 @@
 import Banner from "./Bannar/Banner";
+import Instructor from "./Instructor/Instructor";
 import OurCourses from "./OurCourses/OurCourses";
 import TeachPartner from "./TeachPartner/TeachPartner";
 
@@ -9,6 +10,7 @@ const Home = () => {
             {/* <Banner /> */}
             <TeachPartner />
             <OurCourses />
+            <Instructor />
         </div>
     );
 };

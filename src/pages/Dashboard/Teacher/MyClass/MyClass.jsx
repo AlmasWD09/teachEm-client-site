@@ -1,8 +1,9 @@
 import { useState } from "react";
-import useClass from "../../../../hooks/useClass";
+
 import MyClassCrud from "./MyClassCrud";
 import useAuth from "../../../../hooks/useAuth";
 import LoadindSpenier from "../../../../components/LoadindSpenier";
+import useTeacherData from "../../../../hooks/useTeacherData";
 
 
 
@@ -10,7 +11,7 @@ import LoadindSpenier from "../../../../components/LoadindSpenier";
 const MyClass = () => {
   const{user,loading} = useAuth()
     const [isOpen,setIsOpen] = useState(false)
-    const[classess,isloading,refetch] = useClass()
+    const [teacherData, isloading, refetch] = useTeacherData()
     
     const handleUpdate = () =>{
         setIsOpen(true)
@@ -23,7 +24,7 @@ const MyClass = () => {
         <>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
          {
-            classess.map(singleClass=><MyClassCrud
+            teacherData.map(singleClass=><MyClassCrud
             key={singleClass._id}
             singleClass={singleClass}
             isOpen={isOpen}

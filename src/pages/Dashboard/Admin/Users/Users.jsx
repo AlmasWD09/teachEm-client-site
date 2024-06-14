@@ -59,7 +59,7 @@ console.log(users);
                                 {
                                     users?.map(singleUser=><tr key={singleUser._id}>
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            <img className="w-10 h-10 rounded-full" src={singleUser?.photo} alt="" />
+                                            <img className="w-10 h-10 rounded-full" src={singleUser?.photo || 'https://i.ibb.co/ncyN8Qg/404.webp'} alt="" />
                                         </td>
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                             <p className='text-gray-900 whitespace-no-wrap'>{singleUser?.email}</p>
@@ -91,11 +91,6 @@ console.log(users);
                                         </td>
                                     </tr>)
                                 }
-                                {/* {
-                                    users?.map(singleUser=><UserRow
-                                    key={singleUser._id}
-                                    ></UserRow>)
-                                } */}
                                 </tbody>
 
 

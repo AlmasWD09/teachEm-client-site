@@ -2,8 +2,10 @@ import { Helmet } from "react-helmet-async";
 import useClass from "../../../../hooks/useClass";
 
 
+
 const AllClass = () => {
 const [classess] = useClass()
+console.log(classess);
     return (
         <>
         <div className='container mx-auto px-4 sm:px-8'>
@@ -68,7 +70,7 @@ const [classess] = useClass()
                                           <p className='text-gray-900 whitespace-no-wrap'>{singleClass.title}</p>
                                       </td>
                                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                          <p className='text-gray-900 whitespace-no-wrap'>{singleClass.email}</p>
+                                          <p className='text-gray-900 whitespace-no-wrap'>{singleClass.email || 'NOT FUND'}</p>
                                       </td>
                                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                           <p className='text-gray-900 whitespace-no-wrap'>{singleClass.description}</p>
