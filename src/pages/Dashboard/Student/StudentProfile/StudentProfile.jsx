@@ -1,9 +1,10 @@
+import Profile from "../../../../components/Profile/Profile";
 
 
 const StudentProfile = () => {
     return (
         <div>
-            <h1>student profile page</h1>
+           <Profile />
         </div>
     );
 };

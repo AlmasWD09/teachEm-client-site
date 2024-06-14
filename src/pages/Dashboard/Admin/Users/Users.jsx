@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../../../hooks/useAuth";
 import useAllUser from "../../../../hooks/useAllUser";
+import UserRow from "./UserRow";
 
 
 const Users = () => {
     const { user } = useAuth()
-    const [users, isloading, refetch] = useAllUser()
-
+    const [users] = useAllUser()
+console.log(users);
     return (
         <>
             <div className='container mx-auto px-4 sm:px-8'>
@@ -58,7 +59,7 @@ const Users = () => {
                                 {
                                     users?.map(singleUser=><tr key={singleUser._id}>
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            <p className='text-gray-900 whitespace-no-wrap'>{'user-image'}</p>
+                                            <img className="w-10 h-10 rounded-full" src={singleUser?.photo} alt="" />
                                         </td>
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                             <p className='text-gray-900 whitespace-no-wrap'>{singleUser?.email}</p>
@@ -87,10 +88,14 @@ const Users = () => {
                                                 ></span>
                                                 <span className='relative'>Make Admin</span>
                                             </span>
-                                            {/* Update User Modal */}
                                         </td>
                                     </tr>)
                                 }
+                                {/* {
+                                    users?.map(singleUser=><UserRow
+                                    key={singleUser._id}
+                                    ></UserRow>)
+                                } */}
                                 </tbody>
 
 

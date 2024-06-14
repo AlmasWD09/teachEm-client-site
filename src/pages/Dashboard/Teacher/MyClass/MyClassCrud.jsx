@@ -3,6 +3,7 @@ import { useState } from 'react'
 import UpdatedModal from "../../../../components/Modal/UpdateModal/UpdatedModal";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { Link } from 'react-router-dom';
 
 
 
@@ -10,7 +11,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
     let [isOpen, setIsOpen] = useState(false)
     const axiosSecure = useAxiosSecure()
-    const { _id, image, title, price, description } = singleClass || {}
+    const { _id, image, title, price, description,status } = singleClass || {}
 
 
     const handleDelete = (id) =>{
@@ -62,7 +63,7 @@ const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
                             <p>{user?.email}</p>
                         </div>
                         <div>
-                            <button className="btn btn-xs">status</button>
+                            <span className="bg-gray-800 text-white px-2 rounded-lg">{status}</span>
                         </div>
                     </div>
 
@@ -71,11 +72,23 @@ const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
                     </div>
 
                     <div className="flex justify-between mt-3 items-center">
-                        <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
+                        <Link to={`/dashboard/details/${_id}`}>
+                        <button 
+                         className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
                             Details
                         </button>
+
+                        {/* <button className={`
+                                px-2 py-1 text-xs font-bold text-red bg-gray-400 cursor-not-allowed uppercase transition-colors duration-300 transform
+                                ${status === 'pending' ? 'disabled' : 'bg-green-500 hover:bg-green-700 focus:outline-none focus:bg-green-600'}
+                                rounded
+                            `} disabled={status === 'pending'}
+                            >
+                                Details
+                            </button> */}
+                        </Link>
                         <div className="flex gap-3">
-                            <button onClick={() => setIsOpen(true)} className="btn-xs bg-green-500 text-white">update</button>
+                            <button onClick={() => setIsOpen(true)} className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-green-500 rounded dark:bg-green-500 hover:bg-green-500 dark:hover:bg-green-500 focus:outline-none focus:bg-green-500 dark:focus:bg-green-500">update</button>
 
                             {/* update modal */}
                             <UpdatedModal 
@@ -87,7 +100,7 @@ const MyClassCrud = ({ singleClass,user,closeModal,refetch }) => {
                             />
                             <button 
                             onClick={()=>handleDelete(_id)}
-                            className="btn-xs bg-red-500 text-white">delete</button>
+                            className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-red-500 rounded dark:bg-red-500 hover:bg-red-500 dark:hover:bg-red-500 focus:outline-none focus:bg-gray-700 dark:focus:bg-red-500">delete</button>
                         </div>
                     </div>
                 </div>

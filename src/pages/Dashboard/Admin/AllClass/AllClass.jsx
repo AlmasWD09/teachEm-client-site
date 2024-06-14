@@ -3,8 +3,7 @@ import useClass from "../../../../hooks/useClass";
 
 
 const AllClass = () => {
-const [classess, isloading, refetch] = useClass()
-console.log(classess);
+const [classess] = useClass()
     return (
         <>
         <div className='container mx-auto px-4 sm:px-8'>

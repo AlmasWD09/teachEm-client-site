@@ -18,6 +18,7 @@ import AllClass from "../pages/Dashboard/Admin/AllClass/AllClass";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile/AdminProfile";
 import UpdatedModal from "../components/Modal/UpdateModal/UpdatedModal";
 import NotFound from "../pages/NotFound/NotFound";
+import Details from "../pages/Dashboard/Teacher/Details/Details";
 
 
 const router = createBrowserRouter([
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
           {
             path:'my-class',
             element:<MyClass />
+          },
+          {
+            path:'details/:id',
+            element:<Details />
           },
           {
             path:'teacher-profile',

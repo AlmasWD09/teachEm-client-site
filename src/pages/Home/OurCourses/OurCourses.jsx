@@ -13,7 +13,7 @@ const OurCourses = () => {
 // console.log(classess);
     return (
         <>
-        <div className='my-10 border-2 border-primary p-8'>
+        <div className='my-10 p-8'>
         <Swiper
                 slidesPerView={1}
                 spaceBetween={10}

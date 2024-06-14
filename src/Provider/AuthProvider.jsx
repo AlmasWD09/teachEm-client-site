@@ -42,6 +42,7 @@ const logOut =()=>{
   const saveUserDB = async user => {
     const currentUser = {
       email: user?.email,
+      photo: user?.photoURL,
       role: 'student',
       status: 'Verified',
     }

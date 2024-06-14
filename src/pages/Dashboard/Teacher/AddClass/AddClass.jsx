@@ -30,7 +30,11 @@ if (res.data.success) {
         price: parseFloat(data.price),
         description: data.description,
         image: res.data.data.display_url,
-        email:user?.email
+        teacherEmail:user?.email,
+        status: 'pending',
+        assignment: 0,
+        enrollment:0,
+        submit:6,
     }
 
     

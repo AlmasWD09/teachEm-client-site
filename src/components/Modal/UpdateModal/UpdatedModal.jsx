@@ -107,12 +107,6 @@ const UpdatedModal = ({singleClass,refetch,closeModal, isOpen, setIsOpen }) => {
                                 <button  className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Update class</button>
                             </div>
                         </form>
-
-
-                        {/* <div className="flex justify-between items-center gap-4">
-                            <button onClick={() => setIsOpen(false)} className="bg-gray-300 btn-xs">yes</button>
-                            <button onClick={() => setIsOpen(false)} className="bg-gray-300 btn-xs">No</button>
-                        </div> */}
                     </DialogPanel>
                 </div>
             </Dialog>
