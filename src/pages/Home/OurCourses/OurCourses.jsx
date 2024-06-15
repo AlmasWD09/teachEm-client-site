@@ -40,6 +40,12 @@ const OurCourses = () => {
                 className="mySwiper"
             >
                   <SwiperSlide><img src={img01} alt="" /></SwiperSlide>
+                  <SwiperSlide><img src={img01} alt="" /></SwiperSlide>
+                  <SwiperSlide><img src={img01} alt="" /></SwiperSlide>
+                  <SwiperSlide><img src={img01} alt="" /></SwiperSlide>
+                  <SwiperSlide><img src={img01} alt="" /></SwiperSlide>
+                  <SwiperSlide><img src={img01} alt="" /></SwiperSlide>
+                  <SwiperSlide><img src={img01} alt="" /></SwiperSlide>
             </Swiper>
         </div>
         </>

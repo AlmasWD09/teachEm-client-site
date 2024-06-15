@@ -61,7 +61,7 @@ const Footer = () => {
                                 <div>
                                     <h3 className="text-gray-700 uppercase dark:text-white">Links</h3>
                                     <a href="/" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Home</a>
-                                    <a href="/all-classess" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">All Classess</a>
+                                    <a href="all-classes" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">All Classess</a>
                                   
                                 </div>
 
