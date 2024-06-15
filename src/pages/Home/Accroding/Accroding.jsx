@@ -10,7 +10,7 @@ const Accroding = () => {
                 <div className="collapse collapse-arrow bg-base-200 mb-3 rounded">
                     <input type="radio" name="my-accordion-2" defaultChecked />
                     <div className="collapse-title text-xl font-medium ">
-                    How can You get best facility of our residential
+                    How can You get best facility of our Course
                     </div>
                     <div className="collapse-content">
                         <p>Here is the translation of the sentence Take the opportunity to speak with current residents to get their perspectives on the facilities, management responsiveness, and overall living experience within the estate.</p>
