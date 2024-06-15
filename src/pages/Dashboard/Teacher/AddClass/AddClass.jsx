@@ -15,6 +15,7 @@ const AddClass = () => {
     const axiosSecure = useAxiosSecure()
 
     const { register, reset, handleSubmit, formState: { errors }, } = useForm()
+    
     const onSubmit = async(data) => {
 
 const imageFile = { image: data.image[0] }
@@ -23,6 +24,7 @@ const res = await axiosPublic.post(image_hosting_api, imageFile, {
         'content-type': 'multipart/form-data'
     }
 });
+
 if (res.data.success) {
     // now send the menu item data to the server with the image url
     const createItem = {
