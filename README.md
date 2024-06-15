@@ -1,8 +1,21 @@
 
-# sTechEm
+# TechEm
 
 - [Live Site](url)
+- [admin userName]:
+- [password]:
 
+## wibsite features
+- user loging sistem
+- routing anothe pages
+- user class create
+- user class delete
+- user class update
+- routing system. for example: student, teacher, admin
+- routing system conditionaly user role system
+- image upload in imageBB
+- client-site and server-site reandring
+- user pay button click and payment system add
 
   
 
