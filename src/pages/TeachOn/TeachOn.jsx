@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const TeachOn = () => {
 const {user} = useAuth()
 const axiosSecure = useAxiosSecure()
-    const { register, handleSubmit } = useForm()
+    const { register,reset, handleSubmit } = useForm()
     const onSubmit = async (data) => {
         const teachInfo={
             name:data.name,
@@ -17,6 +17,7 @@ const axiosSecure = useAxiosSecure()
             experience:data.experience,
             category:data.category,
             status:'pending',
+            role:'student'
         }
         const menuRes = await axiosSecure.post('/requested/api/create', teachInfo);
         console.log(menuRes.data);
@@ -29,6 +30,7 @@ const axiosSecure = useAxiosSecure()
                 showConfirmButton: false,
                 timer: 1500
             });
+            reset()
         }
     }
     return (

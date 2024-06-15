@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             </PrivatRoutes>
           },
           {
-            path:'/payment-page',
+            path:'/payment-page/:id',
             element:<PaymantPage />
           },
           {

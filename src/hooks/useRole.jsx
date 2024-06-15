@@ -9,13 +9,13 @@ const useRole = () => {
     const {data: role =''} = useQuery({
         queryKey: ['role',user?.email], 
         queryFn: async() =>{
-            const {data} = await axiosSecure.get(`/user/api/get/${user.email}`);
+            const {data} = await axiosSecure.get(`/requested/api/create/${user.email}`);
             return data.role
         }
     })
 
 
-    return [role]
+    return {role}
 };
 
 

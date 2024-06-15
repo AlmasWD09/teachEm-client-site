@@ -7,7 +7,8 @@ import { useNavigate, useParams } from "react-router-dom";
 // import useCart from "../../../hooks/useCart";
 
 
-const CheckoutForm = () => {
+const CheckoutForm = ({id}) => {
+    
     const [clientSecret, setClientSecret] = useState('')
     const [transactionId, setTransactionId] = useState('');
     const axiosSecure = useAxiosSecure();
@@ -17,7 +18,7 @@ const CheckoutForm = () => {
     const [error, setError] = useState('');
     const { user } = useAuth();
     // const [cart, refetch] = useCart();
-    const{id} = useParams()
+  
 
     // const totalPrice = cart.reduce((total, item) => total + item.price, 0)
 
@@ -126,7 +127,8 @@ const CheckoutForm = () => {
                 },
             }}
         />
-        <button className="btn btn-sm btn-primary my-4" type="submit" disabled={!stripe || !clientSecret}>
+        <button className="btn btn-sm btn-primary my-4" type="submit" > 
+        {/* disabled={!stripe || !clientSecret} */}
             Pay
         </button>
         <p className="text-primary">{error}</p>
