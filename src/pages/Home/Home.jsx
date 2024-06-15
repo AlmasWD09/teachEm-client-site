@@ -11,12 +11,12 @@ import TeachPartner from "./TeachPartner/TeachPartner";
 const Home = () => {
     return (
         <div>
-            <Slider />
+            {/* <Slider />
             <TeachPartner />
-            <OurCourses />
+            <OurCourses /> */}
             <Instructor />
-            <Education />
-            <Accroding />
+            {/* <Accroding />
+            <Education /> */}
         </div>
     );
 };

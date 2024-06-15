@@ -1,8 +1,22 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# sTechEm
 
-Currently, two official plugins are available:
+- [Live Site](url)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+  
+
+
+
+
+### Packages and api docs used in this project:
+- [@stripe/react-stripe-js](https://www.npmjs.com/package/@stripe/react-stripe-js)
+- [IMGBB Api](https://api.imgbb.com/)
+- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query)
+- [axios](https://www.npmjs.com/package/axios)
+- [react-helmet-async](https://www.npmjs.com/package/react-helmet-async)
+- [react-hot-toast](https://www.npmjs.com/package/react-hot-toast)
+- [react-icons](https://www.npmjs.com/package/react-icons)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [@stripe/stripe-js](https://www.npmjs.com/package/@stripe/stripe-js)
+- [firebase](https://www.npmjs.com/package/firebase)

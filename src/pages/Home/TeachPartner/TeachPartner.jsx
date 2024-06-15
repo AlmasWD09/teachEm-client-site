@@ -14,7 +14,7 @@ import logo09 from "../../../assets/partner-logo/photo09.jpg"
 const TeachPartner = () => {
     return (
         <Container>
-            <div className=" h-[200px] flex flex-col md:flex-row  bg-white">
+            <div className=" lg:h-[200px] flex flex-col md:flex-row  bg-white">
                 <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo02} alt="" /></div>
                 <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo03} alt="" /></div>
                 <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo04} alt="" /></div>
