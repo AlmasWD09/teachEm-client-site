@@ -76,13 +76,14 @@ const router = createBrowserRouter([
             element:<MyEnrollClass />
           },
           {
-            path:'student-profile',
-            element:<StudentProfile />
-          },
-          {
             path:'my-enroll-dtails',
             element:<MyEnrollDetails />
           },
+          {
+            path:'student-profile',
+            element:<StudentProfile />
+          },
+     
           //========== student dashboard related routes end ================
 
           //========== teacher dashboard related routes start ==============

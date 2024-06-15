@@ -14,7 +14,7 @@ const AddClass = () => {
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
 
-    const { register, reset, handleSubmit, formState: { errors }, } = useForm()
+    const { register, handleSubmit} = useForm()
     
     const onSubmit = async(data) => {
 
