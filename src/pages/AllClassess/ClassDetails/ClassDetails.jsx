@@ -18,7 +18,7 @@ const ClassDetails = () => {
 
     return (
         <div className="mt-10 flex justify-center">
-            <div className="max-w-4xl  bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <div className="bg-white rounded-lg shadow-md dark:bg-gray-800">
                 <img
                     className="object-cover w-full h-[400px]"
                     src={image}

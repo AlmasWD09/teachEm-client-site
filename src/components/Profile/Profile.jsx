@@ -2,7 +2,7 @@
 import { Helmet } from 'react-helmet-async'
 import useAuth from '../../hooks/useAuth';
 import useRole from '../../hooks/useRole';
-
+import profile from "../../assets/profile.jpg"
 
 
 const Profile = () => {
@@ -17,7 +17,7 @@ const Profile = () => {
       <div className='bg-white shadow-lg rounded-2xl w-3/5'>
         <img
           alt='profile'
-          src='https://i.ibb.co/HGQJT5Z/917443-2854.jpg'
+          src={profile}
           className='w-full mb-4 rounded-t-lg h-36'
         />
         <div className='flex flex-col items-center justify-center p-4 -mt-16'>
@@ -47,7 +47,7 @@ const Profile = () => {
 
               <div>
                 <p>Phone</p>
-                <span className='font-bold text-black '>000000000000</span>
+                <span className='font-bold text-black '>{user?.phone || '000499555552'}</span>
               </div>
             </div>
           </div>

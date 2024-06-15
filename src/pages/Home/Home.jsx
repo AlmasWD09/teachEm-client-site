@@ -1,14 +1,15 @@
-import Banner from "./Bannar/Banner";
+
 import Instructor from "./Instructor/Instructor";
 import OurCourses from "./OurCourses/OurCourses";
+import Slider from "./Slider/Slider";
 import TeachPartner from "./TeachPartner/TeachPartner";
 
 
 const Home = () => {
     return (
         <div>
-            {/* <Banner /> */}
-            <TeachPartner />
+            {/* <Slider /> */}
+            {/* <TeachPartner /> */}
             <OurCourses />
             <Instructor />
         </div>

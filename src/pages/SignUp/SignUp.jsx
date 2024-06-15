@@ -5,18 +5,19 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
-import {  updateProfile } from "firebase/auth";
+
+
 
 const SignUp = () => {
-    const {creatUser,setUser} = useAuth()
+    const {creatUser,setUser,updateUser} = useAuth()
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
     const {register,reset, handleSubmit,formState: { errors },} = useForm()
 
 
 
-    const onSubmit = (data) =>{
 
+    const onSubmit = (data) =>{
     // createUser
     creatUser(data.email, data.password)
     .then(result=>{
@@ -25,11 +26,12 @@ const SignUp = () => {
         navigate('/')
         
         // update profile
-        updateProfile(data.name, data.photo)
+        updateUser(data.name, data.photo)
         setUser({ ...loggendUser, photoURL: data.photo, displayName: data.name })
         reset();
      
     })
+ 
     }
 
     return (

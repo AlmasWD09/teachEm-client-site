@@ -3,16 +3,17 @@ import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 const UpdatedModal = ({singleClass,refetch,closeModal, isOpen, setIsOpen }) => {
+    console.log(typeof isOpen);
     const{user} = useAuth()
-    const { _id,image, title, price, description } = singleClass || {}
+    const { _id,title, price, description } = singleClass || {}
     const axiosSecure = useAxiosSecure()
-    const navigate = useNavigate()
+    
 
-    const { register, reset, handleSubmit, formState: { errors }, } = useForm()
+    const { register,  handleSubmit } = useForm()
     const onSubmit = async(data) => {
 
         const updateItem = {
@@ -82,7 +83,7 @@ const UpdatedModal = ({singleClass,refetch,closeModal, isOpen, setIsOpen }) => {
                                         type="file"
                                         name="image"
                                         id="image"
-                                  
+                                        {...register("image", { required: true })}
                                         className="block w-full px-3 py-2 mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg file:bg-gray-200 file:text-gray-700 file:text-sm file:px-4 file:py-1 file:border-none file:rounded-full dark:file:bg-gray-800 dark:file:text-gray-200 dark:text-gray-300 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-40 dark:border-primary dark:bg-gray-900 dark:focus:border-primary"
                                     />
                                 </div>
@@ -111,5 +112,12 @@ const UpdatedModal = ({singleClass,refetch,closeModal, isOpen, setIsOpen }) => {
         </>
     );
 };
-
+// props-type validation
+UpdatedModal.propTypes = {
+    singleClass: PropTypes.object,
+    closeModal: PropTypes.func,
+    refetch: PropTypes.func,
+    isOpen: PropTypes.bool,
+    setIsOpen: PropTypes.func,
+};
 export default UpdatedModal;
