@@ -1,9 +1,9 @@
 
 # TechEm
 
-- [Live Site](url)
-- [admin userName]:
-- [password]:
+- [Live Site](url):https://teach-em-server-site.vercel.app
+- [admin userName]:almas@gmail.com
+- [password]:Aa$123
 
 ## wibsite features
 - user loging sistem
