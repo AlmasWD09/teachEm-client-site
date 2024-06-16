@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const ClassCrud = ({singleData}) => {
     const{_id,image,title,name,price,description,enrollment} = singleData || {}
+    const navigate = useNavigate()
+    const handleClick = (id) =>{
+        navigate(`/class-details/${id}`)
+    }
     return (
         <div className=" overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
         <img
@@ -17,9 +22,9 @@ const ClassCrud = ({singleData}) => {
             <p className="text-sm text-gray-700 dark:text-gray-200">price:{price}</p>
             <p className="text-sm text-gray-700 dark:text-gray-200">{description}</p>
             <p className="text-sm text-gray-700 dark:text-gray-200">total enroll: <span className="font-bold">{enrollment}</span> </p>
-            <Link to={`/class-details/${_id}`}>
-            <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Enroll Now</button>
-            </Link>
+           
+            <button onClick={()=>handleClick(_id)} className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Enroll Now</button>
+         
             {/* <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Enroll Now</button> */}
             
         </div>

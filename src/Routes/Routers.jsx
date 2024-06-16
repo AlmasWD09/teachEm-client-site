@@ -20,7 +20,6 @@ import UpdatedModal from "../components/Modal/UpdateModal/UpdatedModal";
 import NotFound from "../pages/NotFound/NotFound";
 import Details from "../pages/Dashboard/Teacher/Details/Details";
 import ClassDetails from "../pages/AllClassess/ClassDetails/ClassDetails";
-import PaymantPage from "../pages/PaymantPage/PaymantPage";
 import PrivatRoutes from "./PrivatRoutes";
 
 
@@ -43,10 +42,6 @@ const router = createBrowserRouter([
             element: <PrivatRoutes>
               <ClassDetails />
             </PrivatRoutes>
-          },
-          {
-            path:'/payment-page/:id',
-            element:<PaymantPage />
           },
           {
             path:'/teach-on',
