@@ -1,7 +1,7 @@
 
 # TechEm
 
-- [Live Site](url):https://teach-em-server-site.vercel.app
+- [Live Site](url):https://teachem-a2347.web.app
 - [admin userName]:almas@gmail.com
 - [password]:Aa$123
 
