@@ -2,6 +2,8 @@
 import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 import { Outlet } from "react-router-dom";
+import ScrollTopButton from "../components/ScrollTopButton";
+
 
 const MainLayout = () => {
     return (
@@ -11,6 +13,7 @@ const MainLayout = () => {
         <Outlet />
         </div>
         <Footer />
+        <ScrollTopButton />
     </div>
     );
 };
