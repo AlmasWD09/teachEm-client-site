@@ -3,11 +3,12 @@ import photo from "../../../assets/partner-logo/education.jpg"
 
 const Education = () => {
     return (
-        <div className="flex justify-between items-center mt-10">
-            <div className="w-[50%]">
+        <div className="flex flex-col justify-center md:justify-between items-center mt-10">
+            <div className="w-full md:w-[50%]">
                 <img src={photo} alt="" />
             </div>
-            <div className="w-[50%] space-y-3">
+
+            <div className="w-full md:w-[50%] space-y-3">
                 <h2 className="text-3xl font-semibold uppercase w-[500px]">Take the next step toward your personal and professional goals with Coursera.</h2>
                 <p className="w-[400px]">Join now to receive personalized recommendations from the full Coursera catalog.</p>
                 <Link to='/dashboard/my-class'>
