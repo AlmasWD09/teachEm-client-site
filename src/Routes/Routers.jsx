@@ -71,7 +71,7 @@ const router = createBrowserRouter([
             element:<MyEnrollClass />
           },
           {
-            path:'my-enroll-dtails',
+            path:'my-enroll-dtails/:id',
             element:<MyEnrollDetails />
           },
           {

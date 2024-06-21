@@ -1,13 +1,23 @@
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../../../hooks/useAuth";
 import useAllUser from "../../../../hooks/useAllUser";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 
 const Users = () => {
     const { user } = useAuth()
-    const [users] = useAllUser()
+    const [users,refetch] = useAllUser()
+    const axiosSecure = useAxiosSecure()
 
+    const handleChangeRole = (id) =>{
+        const requestInfo = {
+            role:'admin',
+        }
+        const {data} = axiosSecure.patch(`/user/api/role/update/${id}`,requestInfo)
+        console.log(data);
+        refetch()
+    }
     return (
         <>
             <div className='container mx-auto px-4 sm:px-8'>
@@ -86,7 +96,9 @@ const Users = () => {
                                                     aria-hidden='true'
                                                     className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
                                                 ></span>
-                                                <span className='relative'>Make Admin</span>
+                                                <button 
+                                                onClick={()=>handleChangeRole(singleUser._id)}
+                                                className='relative'>Make Admin</button>
                                             </span>
                                         </td>
                                     </tr>)

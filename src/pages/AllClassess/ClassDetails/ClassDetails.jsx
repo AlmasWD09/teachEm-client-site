@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import PaymentModal from "../../PaymantPage/PaymentModal";
 
 
+
 const ClassDetails = () => {
     const { id } = useParams()
     const axiosSecure = useAxiosSecure()
