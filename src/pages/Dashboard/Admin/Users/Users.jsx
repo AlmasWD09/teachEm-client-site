@@ -1,12 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import useAuth from "../../../../hooks/useAuth";
 import useAllUser from "../../../../hooks/useAllUser";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 
 const Users = () => {
-    const { user } = useAuth()
+
     const [users,refetch] = useAllUser()
     const axiosSecure = useAxiosSecure()
 
@@ -14,10 +13,9 @@ const Users = () => {
         const requestInfo = {
             role:'admin',
         }
-        const {data} = axiosSecure.patch(`/user/api/role/update/${id}`,requestInfo)
-        
-        console.log(data);
-        refetch()
+        const res = axiosSecure.patch(`/user/api/role/update/${id}`,requestInfo)
+        console.log(res.data);
+
     }
     return (
         <>

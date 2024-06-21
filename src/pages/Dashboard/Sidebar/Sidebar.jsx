@@ -233,13 +233,6 @@ const Sidebar = () => {
                             ''
                     }
 
-
-
-
-
-
-
-
                     <NavLink to='/login'>
                         <button
                             onClick={logOut}

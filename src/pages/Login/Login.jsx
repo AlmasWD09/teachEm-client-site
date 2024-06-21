@@ -31,7 +31,7 @@ const Login = () => {
             <Helmet>
                 <title>TeachEm || Login</title>
             </Helmet>
-            <section className="bg-white dark:bg-gray-900">
+            <section className="bg-white dark:bg-slate-800">
                 <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
 
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-8 rounded-lg">

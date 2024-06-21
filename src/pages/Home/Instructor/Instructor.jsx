@@ -4,10 +4,11 @@ import photo from "../../../assets/partner-logo/instactor.png"
 const Instructor = () => {
     return (
         <div className=" h-[400px] flex flex-col md:flex-row justify-center items-center gap-10">
-            <div className="md:w-[50%] flex justify-end">
+            <div className="md:w-[50%] flex justify-center lg:justify-end">
                 <img className="h-[300px]" src={photo} alt="" />
             </div>
-            <div className="md:w-[50%] space-y-2">
+
+            <div className="md:w-[50%] justify-center space-y-2">
                <h1 className="text-2xl font-semibold">Become an Instructor</h1>
                <p className="max-w-[350px]">Conveniently transition client-focused mindshare with robust expertise. Efficiently provide access to collaborative web-readiness</p>
                <Link to='/teach-on'>

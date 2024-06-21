@@ -15,7 +15,7 @@ const handleClick = () =>{
 
 const axiosPublic = useAxiosPublic();
 const {data: assignmentData = [], refetch} = useQuery({
-    queryKey: ['assignment-data',], 
+    queryKey: ['assignment-data',id], 
     queryFn: async() =>{
         const res = await axiosPublic.get(`/assignment/api/get/${id}`);
         return res.data;
