@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 
 const Login = () => {
     const { logIn } = useAuth()
-    const {register,reset, handleSubmit,formState: { errors },} = useForm()
+    const {register, handleSubmit,formState: { errors },} = useForm()
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";

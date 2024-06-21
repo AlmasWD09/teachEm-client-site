@@ -89,14 +89,15 @@ const CheckoutForm = ({ singleClass, closeModal, refetch }) => {
         ...singleClass,
         transactionId: paymentIntent.id,
       }
-      // console.log(paymentInfo);
+      console.log(paymentInfo);
 
       try {
         // 2. save payment info in payment collection (db)
-        const { data } = axiosSecure.post('/payment', paymentInfo)
-        console.log(data);
-        toast.success('class enrolled Successfully')
-        navigate('/dashboard/my-enroll-class')
+        const  res  =await axiosSecure.post('/payment', paymentInfo)
+        if(res.data.insertedId ){
+          toast.success('Payment Successfully')
+          navigate('/dashboard/my-enroll-class')
+        }
       } 
       catch (err) {
         console.log(err)

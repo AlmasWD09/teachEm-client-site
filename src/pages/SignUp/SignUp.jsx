@@ -12,7 +12,7 @@ const SignUp = () => {
     const {creatUser,setUser,updateUser} = useAuth()
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
-    const {register,reset, handleSubmit,formState: { errors },} = useForm()
+    const {register, handleSubmit,formState: { errors },} = useForm()
 
 
 
@@ -28,7 +28,6 @@ const SignUp = () => {
         // update profile
         updateUser(data.name, data.photo)
         setUser({ ...loggendUser, photoURL: data.photo, displayName: data.name })
-        reset();
      
     })
  

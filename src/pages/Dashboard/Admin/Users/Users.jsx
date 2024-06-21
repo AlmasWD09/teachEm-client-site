@@ -15,6 +15,7 @@ const Users = () => {
             role:'admin',
         }
         const {data} = axiosSecure.patch(`/user/api/role/update/${id}`,requestInfo)
+        
         console.log(data);
         refetch()
     }
