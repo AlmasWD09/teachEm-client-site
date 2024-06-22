@@ -44,5 +44,4 @@ const {data: assignmentData = [], refetch} = useQuery({
         </div>
     );
 };
-
 export default Details;
