@@ -41,7 +41,6 @@ if (res.data.success) {
 
     
     const menuRes = await axiosSecure.post('/class/api/create', createItem);
-    // console.log(menuRes.data)
     if (menuRes.data.insertedId) {
         // reset();
         Swal.fire({

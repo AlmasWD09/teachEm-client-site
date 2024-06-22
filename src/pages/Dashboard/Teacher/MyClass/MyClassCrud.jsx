@@ -4,7 +4,7 @@ import UpdatedModal from "../../../../components/Modal/UpdateModal/UpdatedModal"
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types'
 
 
 
@@ -101,5 +101,11 @@ const MyClassCrud = ({ singleClass, user, closeModal, refetch }) => {
         </div>
     );
 };
-
+// props-type validation
+MyClassCrud.propTypes = {
+    singleClass: PropTypes.object,
+    user: PropTypes.object,
+    closeModal: PropTypes.func,
+    refetch: PropTypes.func,
+  };
 export default MyClassCrud;

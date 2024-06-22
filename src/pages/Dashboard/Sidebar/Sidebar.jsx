@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
-// import { BsFingerprint, BsFillHouseAddFill } from 'react-icons/bs'
-// import { GrUserAdmin } from 'react-icons/gr'
 import { MdOutlineFlightClass } from 'react-icons/md'
 import { AiOutlineBars } from 'react-icons/ai'
 

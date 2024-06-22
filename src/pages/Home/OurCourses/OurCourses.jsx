@@ -5,12 +5,10 @@ import 'swiper/css/navigation';
 import { Pagination,Navigation } from 'swiper/modules';
 
 import img01 from "../../../assets/banner.jpg"
-import useClass from '../../../hooks/useClass';
+
 
 
 const OurCourses = () => {
-    const [classess] =useClass()
-// console.log(classess);
     return (
         <>
         <div className='my-10 p-8'>

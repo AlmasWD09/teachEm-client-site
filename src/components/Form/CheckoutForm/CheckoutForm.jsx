@@ -10,12 +10,11 @@ import toast from 'react-hot-toast';
 
 
 
-const CheckoutForm = ({ singleClass, closeModal, refetch }) => {
+const CheckoutForm = ({ singleClass, closeModal }) => {
   const{user} = useAuth()
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure()
-  const [errorMessage, setErrorMessage] = useState(null);
   const [clientSecret, setClientSecret] = useState('')
   const [cardError, setCardError] = useState()
   const [processing, setProcessing] = useState(false)
@@ -147,4 +146,9 @@ const CheckoutForm = ({ singleClass, closeModal, refetch }) => {
   );
 };
 
+// props-type validation
+CheckoutForm.propTypes = {
+  singleClass: PropTypes.object,
+  closeModal: PropTypes.func,
+};
 export default CheckoutForm;

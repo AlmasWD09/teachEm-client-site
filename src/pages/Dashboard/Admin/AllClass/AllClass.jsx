@@ -1,11 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import useClass from "../../../../hooks/useClass";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useTheme from "../../../../hooks/useTheme";
 
 
 
 
 const AllClass = () => {
+    const theme = useTheme()
 const axiosSecure = useAxiosSecure()
 const [classess] = useClass()
 
@@ -86,7 +88,6 @@ const handleApproved = (id) =>{
                             <tbody>
                                 { classess.map(singleClass=><tr key={singleClass._id}>
                                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                          {/* <p className='text-gray-900 whitespace-no-wrap'></p> */}
                                           <img className="w-20 h-12 object-cover rounded-full" src={singleClass.image} alt="" />
                                       </td>
                                       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>

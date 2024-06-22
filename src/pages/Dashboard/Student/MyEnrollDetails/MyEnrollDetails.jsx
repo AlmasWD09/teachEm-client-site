@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 const MyEnrollDetails = () => {
     const {id} = useParams()
     const axiosPublic = useAxiosPublic();
-const {data: assignmentData = [], refetch} = useQuery({
+const {data: assignmentData = []} = useQuery({
     queryKey: ['assignment-data',id], 
     queryFn: async() =>{
         const res = await axiosPublic.get(`/assignment/api/get/${id}`);
@@ -15,7 +15,6 @@ const {data: assignmentData = [], refetch} = useQuery({
     }
    
 })
-console.log(assignmentData);
     return (
         <div className='container mx-auto px-4 sm:px-8'>
             <Helmet>

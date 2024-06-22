@@ -5,17 +5,19 @@ import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
+import useTheme from "../../hooks/useTheme";
 
 
 const Login = () => {
     const { logIn } = useAuth()
-    const {register, handleSubmit,formState: { errors },} = useForm()
+    const theme = useTheme()
+    const { register, handleSubmit, formState: { errors }, } = useForm()
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-    
+
     // handle login form value
-    const onSubmit = (data) =>{
+    const onSubmit = (data) => {
         logIn(data.email, data.password)
             .then(result => {
                 console.log(result.user);
@@ -24,7 +26,8 @@ const Login = () => {
             })
             .then(err => {
                 console.log(err);
-            })}
+            })
+    }
 
     return (
         <div>
@@ -45,7 +48,7 @@ const Login = () => {
                                 </svg>
                             </span>
 
-                            <input type="email" name="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" {...register("email", { required: true })}/>
+                            <input type="email" name="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" {...register("email", { required: true })} />
                         </div>
 
                         <div className="relative flex items-center mt-4">
@@ -61,7 +64,7 @@ const Login = () => {
                                     minLength: 6,
                                     maxLength: 20,
                                     pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/
-                                })}/>
+                                })} />
                         </div>
                         <small>{errors.password?.type === 'require' && <span className="text-red-400">password is required</span>}</small>
                         <small>{errors.password?.type === 'minLength' && <span className="text-red-400">password must be 6 Carecter</span>}</small>
@@ -69,7 +72,7 @@ const Login = () => {
                         <small>{errors.password?.type === 'pattern' && <span className="text-red-400">at least one uppercase letter, one lowercase letter, one special characte</span>}</small>
 
                         <div className="mt-6">
-                            <button  type="submit" className="disabled:bg-gray-200 w-full disabled:cursor-not-allowed px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg ">
+                            <button type="submit" className="disabled:bg-gray-200 w-full disabled:cursor-not-allowed px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg ">
                                 Login
                             </button>
 
@@ -78,7 +81,7 @@ const Login = () => {
                                     <Link to='/signUp' className="text-blue-500 font-semibold dark:text-blue-400"> SignUp</Link> </p>
                             </div>
                         </div>
-                <SocialLogin />
+                        <SocialLogin />
                     </form>
                 </div>
             </section>

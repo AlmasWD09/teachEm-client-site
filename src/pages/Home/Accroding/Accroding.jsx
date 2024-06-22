@@ -1,4 +1,4 @@
-import photo from "../../../assets/partner-logo/question.jpg"
+
 
 const Accroding = () => {
     return (
@@ -7,7 +7,7 @@ const Accroding = () => {
         <div className="flex justify-center">
             <div className="w-full lg:w-3/5">
                 {/* according component */}
-                <div className="collapse collapse-arrow bg-base-200 mb-3 rounded">
+                <div className="collapse collapse-arrow bg-base-200 dark:bg-slate-800 dark:text-white mb-3 rounded">
                     <input type="radio" name="my-accordion-2" defaultChecked />
                     <div className="collapse-title text-xl font-medium ">
                     How can You get best facility of our Course
@@ -16,7 +16,7 @@ const Accroding = () => {
                         <p>Here is the translation of the sentence Take the opportunity to speak with current residents to get their perspectives on the facilities, management responsiveness, and overall living experience within the estate.</p>
                     </div>
                 </div>
-                <div className="collapse collapse-arrow bg-base-200 mb-3 rounded">
+                <div className="collapse collapse-arrow bg-base-200 dark:bg-slate-800 dark:text-white mb-3 rounded">
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title text-xl font-medium">
                     Is there a facility to gain ownership through rent
@@ -25,7 +25,7 @@ const Accroding = () => {
                         <p>This arrangement can benefit tenants who may not have sufficient funds for a traditional down payment or who are working to improve their credit score before securing a mortgage</p>
                     </div>
                 </div>
-                <div className="collapse collapse-arrow bg-base-200 mb-3 rounded">
+                <div className="collapse collapse-arrow bg-base-200 dark:bg-slate-800 dark:text-white mb-3 rounded">
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title text-xl font-medium">
                     Why is living in student housing beneficial for studies
@@ -34,7 +34,7 @@ const Accroding = () => {
                         <p>Student housing complexes often prioritize safety and security measures, such as secure entry systems, on-site security personnel, and surveillance cameras.</p>
                     </div>
                 </div>
-                <div className="collapse collapse-arrow bg-base-200 mb-3 rounded">
+                <div className="collapse collapse-arrow bg-base-200 dark:bg-slate-800 dark:text-white mb-3 rounded">
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title text-xl font-medium">
                         How can You get support

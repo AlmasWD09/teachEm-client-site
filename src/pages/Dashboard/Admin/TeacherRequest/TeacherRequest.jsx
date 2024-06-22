@@ -1,28 +1,42 @@
 import { Helmet } from "react-helmet-async";
 import useRequeste from "../../../../hooks/useRequeste";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useTheme from "../../../../hooks/useTheme";
 
 
 
 const TeacherRequest = () => {
+    const theme = useTheme()
     const [requestData,refetch] = useRequeste()
     const axiosSecure = useAxiosSecure()
   
 
-    const handleApproved = (id) => {
+    const handleApproved = async(id,email) => {
 
         const requestInfo = {
             role:'teacher',
+            status:'accepted',
         }
-        const {data} = axiosSecure.patch(`/requested/api/role/update/${id}`,requestInfo)
+        const {data} =await axiosSecure.patch(`/requested/api/role/update/${id}`,requestInfo)
         console.log(data);
+
+
+
+        const userRoleUpdate = {
+            role:'teacher',
+        }
+        const res =await axiosSecure.patch(`/user/api/role/${email}`,userRoleUpdate)
+        console.log(res.data);
         refetch()
     }
-    const handleReject = (id) =>{
+
+
+
+    const handleReject = async(id) =>{
         const requestInfo = {
             status:'reject',
         }
-        const {data} = axiosSecure.patch(`/requested/api/role/update/${id}`,requestInfo)
+        const {data} =await axiosSecure.patch(`/requested/api/role/update/${id}`,requestInfo)
         console.log(data);
         refetch()
     }
@@ -36,8 +50,8 @@ const TeacherRequest = () => {
                 </Helmet>
                 <div className='py-8'>
                     <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
-                        <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
-                            <table className='min-w-full leading-normal'>
+                        <div className='inline-block min-w-full shadow rounded-lg overflow-hidden '>
+                            <table className='min-w-full leading-normal '>
                                 <thead>
                                     <tr>
                                         <th
@@ -150,7 +164,7 @@ const TeacherRequest = () => {
                                                     className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
                                                 ></span>
                                                 <button 
-                                                 onClick={()=>handleApproved(reqData._id)}
+                                                 onClick={()=>handleApproved(reqData._id,reqData.email)}
                                                 className='relative'>Approved </button>
                                             </span>
                                         </td>

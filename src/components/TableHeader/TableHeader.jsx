@@ -53,7 +53,6 @@ const TableHeader = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody>{/*  data */}</tbody>
               </table>
             </div>
           </div>

@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import useAllUser from "../../../../hooks/useAllUser";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useTheme from "../../../../hooks/useTheme";
 
 
 
 const Users = () => {
-
-    const [users,refetch] = useAllUser()
+    const theme = useTheme()
+    const [users] = useAllUser()
     const axiosSecure = useAxiosSecure()
 
     const handleChangeRole = (id) =>{

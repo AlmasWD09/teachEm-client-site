@@ -5,10 +5,12 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import useTheme from "../../hooks/useTheme";
 
 
 
 const SignUp = () => {
+    const theme = useTheme()
     const {creatUser,setUser,updateUser} = useAuth()
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);

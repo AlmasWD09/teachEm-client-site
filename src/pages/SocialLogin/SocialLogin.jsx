@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
+import useTheme from "../../hooks/useTheme";
 
 
 
@@ -9,7 +10,7 @@ import toast from "react-hot-toast";
 
 const SocialLogin = () => {
     const { googleLogin } = useAuth();
-
+    const theme = useTheme()
     const navigate = useNavigate();
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";
@@ -31,8 +32,8 @@ const SocialLogin = () => {
                 <div className="flex justify-center">
                     <button
                         onClick={() => handleSocialLogin(googleLogin)}
-                        className=" flex items-center bg-green-200 rounded-lg p-1 px-4 my-3">
-                        <p className="text-2xl"><FcGoogle /></p>
+                        className=" flex items-center bg-green-200 dark:bg-slate-800 rounded-lg p-1 px-4 my-3">
+                        <p className="text-2xl"><FcGoogle className="mr-2"/></p>
                         Continue with Google
                     </button>
                 </div>
