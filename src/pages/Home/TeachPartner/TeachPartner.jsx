@@ -14,15 +14,15 @@ import logo09 from "../../../assets/partner-logo/photo09.jpg"
 const TeachPartner = () => {
     return (
         <Container>
-            <div className=" lg:h-[200px] flex flex-col md:flex-row  bg-white">
-                <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo02} alt="" /></div>
-                <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo03} alt="" /></div>
-                <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo04} alt="" /></div>
-                <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo05} alt="" /></div>
-                <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo06} alt="" /></div>
-                <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo07} alt="" /></div>
-                <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo08} alt="" /></div>
-                <div className="lg:w-1/5  flex justify-center items-center"><img className="w-3/4 h-3/4" src={logo09} alt="" /></div>
+            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8  bg-white lg:mt-10">
+                <div className="flex justify-center items-center"><img className="w-3/4 lg:w-4/5 h-3/4 lg:h-4/5" src={logo02} alt="" /></div>
+                <div className="flex justify-center items-center"><img className="w-3/4 lg:w-4/5 h-3/4 lg:h-4/5" src={logo03} alt="" /></div>
+                <div className="flex justify-center items-center"><img className="w-3/4 lg:w-4/5 h-3/4 lg:h-4/5" src={logo04} alt="" /></div>
+                <div className="flex justify-center items-center"><img className="w-3/4 lg:w-4/5 h-3/4 lg:h-4/5" src={logo05} alt="" /></div>
+                <div className="flex justify-center items-center"><img className="w-3/4 lg:w-4/5 h-3/4 lg:h-4/5" src={logo06} alt="" /></div>
+                <div className="flex justify-center items-center"><img className="w-3/4 lg:w-4/5 h-3/4 lg:h-4/5" src={logo07} alt="" /></div>
+                <div className="flex justify-center items-center"><img className="w-3/4 lg:w-4/5 h-3/4 lg:h-4/5" src={logo08} alt="" /></div>
+                <div className="flex justify-center items-center"><img className="w-3/4 lg:w-4/5 h-3/4 lg:h-4/5" src={logo09} alt="" /></div>
             </div>
         </Container>
     );

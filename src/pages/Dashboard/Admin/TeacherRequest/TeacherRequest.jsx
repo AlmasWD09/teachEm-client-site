@@ -5,16 +5,18 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 const TeacherRequest = () => {
-    const [requestData] = useRequeste()
+    const [requestData, ,refetch] = useRequeste()
     const axiosSecure = useAxiosSecure()
   
 
     const handleApproved = (id) => {
+
         const requestInfo = {
-            status:'reject',
+            role:'teacher',
         }
         const {data} = axiosSecure.patch(`/requested/api/role/update/${id}`,requestInfo)
         console.log(data);
+        refetch()
     }
     const handleReject = (id) =>{
         const requestInfo = {
@@ -22,6 +24,7 @@ const TeacherRequest = () => {
         }
         const {data} = axiosSecure.patch(`/requested/api/role/update/${id}`,requestInfo)
         console.log(data);
+        refetch()
     }
 
 
@@ -48,6 +51,12 @@ const TeacherRequest = () => {
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
                                             Name
+                                        </th>
+                                        <th
+                                            scope='col'
+                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                                        >
+                                            Email
                                         </th>
                                         <th
                                             scope='col'
@@ -105,6 +114,9 @@ const TeacherRequest = () => {
                                             </td>
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                 <p className='text-gray-900 whitespace-no-wrap'>{reqData?.name}</p>
+                                            </td>
+                                            <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                                <p className='text-gray-900 whitespace-no-wrap'>{reqData?.email}</p>
                                             </td>
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                 <p className='text-gray-900 whitespace-no-wrap'>{reqData?.experience}</p>
