@@ -27,10 +27,22 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
   }, [singleClass?.price])
 
   //   get clientSecret
-  const getClientSecret = async price => {
-    const { data } = await axiosSecure.post(`/create-payment-intent`, price)
-    // console.log('clientSecret from server--->', data)
-    setClientSecret(data.clientSecret)
+  const getClientSecret = async () => {
+    fetch('http://localhost:5000/create-payment-intent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({price: singleClass?.price }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('clientSecret from server', data);
+        setClientSecret(data.clientSecret);
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
   }
 
   const handleSubmit = async (event) => {
