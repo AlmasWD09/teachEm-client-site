@@ -27,8 +27,8 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
   }, [singleClass?.price])
 
   //   get clientSecret
-  const getClientSecret = async () => {
-    fetch('https://teach-em-server-site.vercel.app/create-payment-intent', {
+  const getClientSecret = async (price) => {
+    fetch('http://localhost:5000/create-payment-intent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,6 +43,10 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
       .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
       });
+
+      // const { data } = await axiosSecure.post(`/create-payment-intent`, price)
+      // console.log('clientSecret from server--->', data)
+      // setClientSecret(data.clientSecret)
   }
 
   const handleSubmit = async (event) => {
