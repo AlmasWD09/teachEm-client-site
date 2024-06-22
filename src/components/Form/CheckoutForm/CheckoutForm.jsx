@@ -28,7 +28,7 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
 
   //   get clientSecret
   const getClientSecret = async (price) => {
-    fetch('http://localhost:5000/create-payment-intent', {
+    fetch('https://teach-em-server-site.vercel.app/create-payment-intent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
