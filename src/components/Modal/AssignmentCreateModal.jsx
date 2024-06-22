@@ -38,6 +38,7 @@ const AssignmentCreateModal = ({ isOpen, setIsOpen,refetch }) => {
             totalSubmit:0,
         }
         const res = await axiosSecure.post('/assignment/api/create',assignmentInfo)
+        
 
         if(res.data.insertedId){
             toast.success('assignment create successfully')
@@ -82,7 +83,7 @@ const AssignmentCreateModal = ({ isOpen, setIsOpen,refetch }) => {
                         <div className="flex justify-end gap-5 mt-6">
                             <button onClick={() => setIsOpen(false)} className="px-4 py-2.5 leading-5 text-white transition-colors duration-300 transform rounded-md bg-gray-400">cancel</button>
 
-                            <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Submit</button>
+                            <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Add Assignment</button>
                         </div>
                     </form>
                 </DialogPanel>

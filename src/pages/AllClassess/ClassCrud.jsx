@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ClassCrud = ({singleData}) => {
+    console.log(singleData);
     const{_id,image,title,name,price,description,enrollment} = singleData || {}
     const navigate = useNavigate()
     const handleClick = (id) =>{
@@ -18,7 +19,7 @@ const ClassCrud = ({singleData}) => {
 
         <div className="space-y-2 p-4">
             <p className="text-sm text-gray-700 dark:text-gray-200">{title}</p>
-            <p className="text-sm text-gray-700 dark:text-gray-200">{name || 'NOT FUND'}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-200">{name}</p>
             <p className="text-sm text-gray-700 dark:text-gray-200">price:{price}</p>
             <p className="text-sm text-gray-700 dark:text-gray-200">{description}</p>
             <p className="text-sm text-gray-700 dark:text-gray-200">total enroll: <span className="font-bold">{enrollment}</span> </p>

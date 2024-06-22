@@ -7,7 +7,7 @@ const useStatus = () => {
     const {data: statusData = [], isPending: isloading, refetch} = useQuery({
         queryKey: ['all-status',], 
         queryFn: async() =>{
-            const res = await axiosPublic.get('class/api/status/get');
+            const res = await axiosPublic.get('/class/api/status/get');
             return res.data;
         }
     })
