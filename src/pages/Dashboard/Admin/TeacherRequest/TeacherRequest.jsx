@@ -5,7 +5,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 const TeacherRequest = () => {
-    const [requestData, ,refetch] = useRequeste()
+    const [requestData,refetch] = useRequeste()
     const axiosSecure = useAxiosSecure()
   
 
