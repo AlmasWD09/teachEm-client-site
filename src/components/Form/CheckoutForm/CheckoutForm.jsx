@@ -138,9 +138,7 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
 
       <div className='flex mt-2 justify-around'>
         <button type="submit"
-
           disabled={!stripe || !clientSecret || processing}
-
           className='inline-flex justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-sm font-medium text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'>
           Pay ${singleClass.price}
         </button>
