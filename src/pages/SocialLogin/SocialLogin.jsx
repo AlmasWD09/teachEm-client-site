@@ -19,7 +19,7 @@ const SocialLogin = () => {
     const handleSocialLogin = (media) => {
         media()
             .then(res => {
-                console.log(res.user);
+                // console.log(res.user);
                 toast.success('login successfulled')
                 navigate(from, { replace: true })
             })

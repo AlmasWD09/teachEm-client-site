@@ -6,11 +6,14 @@ import toast from "react-hot-toast";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import useTheme from "../../hooks/useTheme";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { useState } from "react";
 
 
 const Login = () => {
     const { logIn } = useAuth()
     const theme = useTheme()
+    const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, formState: { errors }, } = useForm()
     const navigate = useNavigate();
     const location = useLocation();
@@ -65,6 +68,11 @@ const Login = () => {
                                     maxLength: 20,
                                     pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/
                                 })} />
+                                {/* eye icon setup */}
+                            <p className="absolute top-6 right-3 cursor-pointer"
+                                onClick={() => setShowPassword(!showPassword)}>
+                                {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
+                            </p>
                         </div>
                         <small>{errors.password?.type === 'require' && <span className="text-red-400">password is required</span>}</small>
                         <small>{errors.password?.type === 'minLength' && <span className="text-red-400">password must be 6 Carecter</span>}</small>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ClassCrud = ({singleData}) => {
-    console.log(singleData);
+
     const{_id,image,title,name,price,description,enrollment} = singleData || {}
     const navigate = useNavigate()
     const handleClick = (id) =>{
