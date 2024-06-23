@@ -7,11 +7,13 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import useRole from '../../../hooks/useRole';
 
 
 
 const CheckoutForm = ({ singleClass, closeModal }) => {
   const { user } = useAuth()
+  const {role} = useRole()
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure()
@@ -62,6 +64,11 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
       console.log('[PaymentMethod]', paymentMethod);
       setCardError('')
     }
+    // user role check
+    if(role === 'teacher' || role === 'admin'){
+      toast.error(`${role} Not allow`)
+      return 
+    }
 
     // confirm payment
     const { error: confirmError, paymentIntent } =
@@ -100,6 +107,7 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
       }
       catch (err) {
         console.log(err)
+        toast.error('Duplicated class not allow')
       }
     }
 

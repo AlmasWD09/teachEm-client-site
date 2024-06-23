@@ -2,7 +2,7 @@
 import Accroding from "./Accroding/Accroding";
 import Education from "./Education/Education";
 import Instructor from "./Instructor/Instructor";
-// import OurCourses from "./OurCourses/OurCourses";
+import OurCourses from "./OurCourses/OurCourses";
 import Slider from "./Slider/Slider";
 import TeachPartner from "./TeachPartner/TeachPartner";
 
@@ -13,8 +13,8 @@ const Home = () => {
         <div>
             <Slider />
             <TeachPartner />
-            {/* <OurCourses /> */}
             <Instructor />
+            <OurCourses />
             <Accroding />
             <Education />
         </div>
