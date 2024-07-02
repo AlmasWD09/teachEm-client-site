@@ -2,8 +2,16 @@
 # TechEm
 
 - [Live Site](url):https://teachem-a2347.web.app
-- [admin userName]:almas@gmail.com
-- [password]:Aa$123
+- [server-site-github-link](url):https://github.com/AlmasWD09/teachEm-server-site
+<br/>
+- admin userName: almas@gmail.com
+<br/>
+- password: Aa$123
+
+## Overview
+(
+    A modern online course platform offering secure purchases, user-friendly course management, seamless learning, and robust user authentication
+)
 
 ## wibsite features
 - user loging sistem
@@ -33,3 +41,8 @@
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 - [@stripe/stripe-js](https://www.npmjs.com/package/@stripe/stripe-js)
 - [firebase](https://www.npmjs.com/package/firebase)
+
+## Clone repository(NEED)
+-[npm i]
+-[firebase_key setup]
+-[project start for------> npm run dev]
