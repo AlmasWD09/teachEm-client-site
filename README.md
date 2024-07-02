@@ -44,5 +44,7 @@
 
 ## Clone repository(NEED)
 -[npm i]
+<br/>
 -[firebase_key setup]
+<br/>
 -[project start for------> npm run dev]
