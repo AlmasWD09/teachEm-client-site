@@ -42,7 +42,7 @@
 - [@stripe/stripe-js](https://www.npmjs.com/package/@stripe/stripe-js)
 - [firebase](https://www.npmjs.com/package/firebase)
 
-## Clone repository(NEED)
+## Clone repository (NEED)
 -[npm i]
 <br/>
 -[firebase_key setup]
