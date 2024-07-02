@@ -42,9 +42,16 @@
 - [@stripe/stripe-js](https://www.npmjs.com/package/@stripe/stripe-js)
 - [firebase](https://www.npmjs.com/package/firebase)
 
-## Clone repository (NEED)
+## Clone repository Client-site (NEED)
 -[npm i]
 <br/>
 -[firebase_key setup]
 <br/>
 -[project start for------> npm run dev]
+
+## Clone repository Server-site (NEED)
+-[npm i]
+<br/>
+-[mongo db user create]
+<br/>
+-[project start for------> nodemon index.js]
