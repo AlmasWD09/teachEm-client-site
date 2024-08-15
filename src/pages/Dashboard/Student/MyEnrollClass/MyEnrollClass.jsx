@@ -26,7 +26,7 @@ const MyEnrollClass = () => {
 
                         <div className="space-y-2 p-4">
                             <p className="text-sm text-gray-700 dark:text-gray-200">{singleClass.title}</p>
-                            <p className="text-sm text-gray-700 dark:text-gray-200">{singleClass.name || 'NOT FUND'}</p>
+                            <p className="text-sm text-gray-700 dark:text-gray-200">Post: {singleClass.paymentUserName}</p>
                             <button 
                             onClick={()=>handleClick(singleClass._id)}
                             className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Continue</button>

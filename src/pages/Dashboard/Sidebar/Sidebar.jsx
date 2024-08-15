@@ -27,22 +27,13 @@ import LogoutDashboard from "../../../components/CommonMenu/LogoutDashboard";
 import img01 from "../../../assets/icon.png"
 
 const Sidebar = () => {
-    // const { logOut } = useAuth()
-    // const [isActive, setActive] = useState(false)
-    // const{role}= useRole()
-
-
-    // // Sidebar Responsive Handler
-    // const handleToggle = () => {
-    //     setActive(!isActive)
-    // }
     const {user} = useAuth()
     const { logOut } = useAuth()
-    const { role } = useRole()
+    const [role] = useRole()
     const [isOpen, setIsOpen] = useState(false);
     const profile = user?.photoURL
 
-console.log(profile);
+
     return (
         // <>
         //     {/* Small Screen Navbar */}

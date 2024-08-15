@@ -4,7 +4,7 @@ const HigestEnrollClass = () => {
     return (
         <div>
             <div className="bg-gray-300 flex justify-center py-4 rounded">
-                <h1 className="text-3xl font-semibold uppercase">higest enroll class==10</h1>
+                <h1 className="text-3xl font-semibold uppercase">higest enroll class</h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:px-24 mt-10">
                 {/* class curd */}

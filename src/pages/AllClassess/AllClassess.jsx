@@ -5,6 +5,7 @@ import ClassCrud from "./ClassCrud";
 
 const AllClassess = () => {
     const [statusData] = useStatus()
+    console.log(statusData,'line 8 navbar allclassess curd');
     return (
         <div className="mt-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

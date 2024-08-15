@@ -13,7 +13,6 @@ const AddClass = () => {
     const navigate = useNavigate()
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
-
     const { register, handleSubmit} = useForm()
     
     const onSubmit = async(data) => {
@@ -25,6 +24,7 @@ const res = await axiosPublic.post(image_hosting_api, imageFile, {
     }
 });
 
+
 if (res.data.success) {
     // now send the menu item data to the server with the image url
     const createItem = {
@@ -33,10 +33,11 @@ if (res.data.success) {
         description: data.description,
         image: res.data.data.display_url,
         teacherEmail:user?.email,
+        teacherName:user?.displayName,
         status: 'pending',
         assignment: 0,
-        enrollment:0,
-        submit:6,
+        total_enroll:0,
+        submit:0,
     }
 
     
@@ -52,10 +53,12 @@ if (res.data.success) {
         });
         navigate('/dashboard/my-class')
     }
+
 }
 
-    }
 
+
+}
     return (
         <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5">

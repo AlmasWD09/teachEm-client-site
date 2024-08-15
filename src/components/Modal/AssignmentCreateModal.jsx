@@ -8,12 +8,12 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const AssignmentCreateModal = ({ isOpen, setIsOpen,refetch }) => {
+const AssignmentCreateModal = ({ isOpen, setIsOpen, refetch }) => {
     const [startDate, setStartDate] = useState(new Date())
     const axiosSecure = useAxiosSecure()
-    const {id} = useParams()
-    const { register,reset, handleSubmit } = useForm()
-    
+    const { id } = useParams()
+    const { register, reset, handleSubmit } = useForm()
+
     // date convert to number Formet
     const formatDate = (date) => {
         const d = new Date(date);
@@ -30,17 +30,17 @@ const AssignmentCreateModal = ({ isOpen, setIsOpen,refetch }) => {
     const onSubmit = async (data) => {
         data.deadline = formatDate(startDate);
         const assignmentInfo = {
-            title : data.title,
-            classId:id,
-            description:data.description,
-            deadline:data.deadline,
-            totalAssignment:0,
-            totalSubmit:0,
+            title: data.title,
+            description: data.description,
+            deadline: data.deadline,
+            SeeDetailsId: id,
+            assignmentSubmit: 0,
+            assignmentPost: 0,
         }
-        const res = await axiosSecure.post('/assignment/api/create',assignmentInfo)
-        
+        const res = await axiosSecure.post('/assignment/api/create', assignmentInfo)
 
-        if(res.data.insertedId){
+
+        if (res.data.insertedId) {
             toast.success('assignment create successfully')
             refetch()
             reset()

@@ -6,33 +6,46 @@ import { Helmet } from "react-helmet-async";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import useTheme from "../../hooks/useTheme";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 
 const SignUp = () => {
     const theme = useTheme()
-    const {creatUser,setUser,updateUser} = useAuth()
+    // console.log(theme);
+    const axiosPublic = useAxiosPublic()
+    const { creatUser, setUser, updateUser } = useAuth()
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
-    const {register, handleSubmit,formState: { errors },} = useForm()
+    const { register, handleSubmit, formState: { errors }, } = useForm()
 
 
 
 
-    const onSubmit = (data) =>{
-    // createUser
-    creatUser(data.email, data.password)
-    .then(result=>{
-        const loggendUser = result.user 
-        toast.success('User Created Successfully')
-        navigate('/')
-        
-        // update profile
-        updateUser(data.name, data.photo)
-        setUser({ ...loggendUser, photoURL: data.photo, displayName: data.name })
-     
-    })
- 
+    const onSubmit =async (data) => {
+        // createUser
+        creatUser(data.email, data.password)
+            .then(result => {
+                const loggendUser = result.user
+                toast.success('User Created Successfully')
+                navigate('/')
+
+                // update profile
+                updateUser(data.name, data.photo)
+                setUser({ ...loggendUser, photoURL: data.photo, displayName: data.name })
+
+            })
+            const userInfo = {
+                email: data.email,
+                name : data.name,
+                photo : data.photo,
+                status: 'pending',
+                role : data.role,
+            }
+
+            const { responce } = await axiosPublic.put('/user/api/create', userInfo)
+            // console.log(responce);
+
     }
 
     return (
@@ -58,6 +71,14 @@ const SignUp = () => {
                             <input type="text" name="name" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="User name"  {...register("name", { required: true })} />
                         </div>
                         <small>{errors.name && <span className="text-red-400">name is required</span>}</small>
+
+                        {/* user role */}
+                        <div className='relative flex items-center mt-8'>
+                            <select name="role" className="select select-bordered w-full" {...register("role", { required: true })}>
+                                <option value="student" selected>Student</option>
+                                <option value="teacher">Teacher</option>
+                            </select>
+                        </div>
 
                         {/* user photo url */}
                         <div className="relative flex items-center mt-8">

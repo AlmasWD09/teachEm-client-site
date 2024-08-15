@@ -21,6 +21,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import Details from "../pages/Dashboard/Teacher/Details/Details";
 import ClassDetails from "../pages/AllClassess/ClassDetails/ClassDetails";
 import PrivatRoutes from "./PrivatRoutes";
+import SeePrograess from "../pages/Dashboard/Admin/SeePrograess/SeePrograess";
 
 
 const router = createBrowserRouter([
@@ -121,6 +122,10 @@ const router = createBrowserRouter([
           {
             path:'admin-profile',
             element:<AdminProfile />
+          },
+          {
+            path:'see-prograess/:id',
+            element:<SeePrograess />
           },
           //========== Admin dashboard related routes end ================
         ]

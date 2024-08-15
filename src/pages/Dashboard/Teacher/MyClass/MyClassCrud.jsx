@@ -74,7 +74,7 @@ const MyClassCrud = ({ singleClass, user, closeModal, refetch }) => {
                     <div className="flex justify-between mt-3 items-center">
                         <Link to={`/dashboard/details/${_id}`}>
                             <button
-                                className={`px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform ${status === 'pending' ? 'bg-red-200 cursor-not-allowed' : 'bg-gray-800 hover:bg-gray-700 focus:bg-gray-700'}`}
+                                className={`px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform ${status === 'pending' ? 'bg-red-200 cursor-not-allowed rounded' : 'bg-gray-800 rounded hover:bg-gray-700 focus:bg-gray-700'}`}
                                 disabled={status === 'pending'}>
                                 Details
                             </button>

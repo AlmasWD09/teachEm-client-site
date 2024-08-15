@@ -7,70 +7,62 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import useRole from '../../../hooks/useRole';
 
 
 
-const CheckoutForm = ({ singleClass, closeModal }) => {
-  const { user } = useAuth()
-  const {role} = useRole()
+
+const CheckoutForm = ({ singleClass, closeModal,refetch }) => {
   const stripe = useStripe();
   const elements = useElements();
-  const axiosSecure = useAxiosSecure()
-  const [clientSecret, setClientSecret] = useState('')
-  const [cardError, setCardError] = useState()
-  const [processing, setProcessing] = useState(false)
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+  const [clientSecret, setClientSecret] = useState();
+  const [cardError, setCardError] = useState("");
+  const [processing, setProcessing] = useState(false);
   const navigate = useNavigate()
 
   useEffect(() => {
     if (singleClass?.price && singleClass?.price > 1) {
-      getClientSecret({ price: singleClass?.price })
+      getClientSecret({ price: singleClass?.price });
     }
-  }, [singleClass?.price])
+  }, [singleClass?.price]);
 
-  //   get clientSecret
   const getClientSecret = async (price) => {
-    const { data } = await axiosSecure.post(`/create-payment-intent`, price)
-    console.log('clientSecret from server--->', data)
-    setClientSecret(data.clientSecret)
-  }
+    const { data } = await axiosSecure.post(`/create-payment-intent`, price);
+    setClientSecret(data?.clientSecret);
+  };
+
 
   const handleSubmit = async (event) => {
-    // Block native form submission.
-    event.preventDefault()
-    setProcessing(true)
+    event.preventDefault();
+    setProcessing(true);
+
     if (!stripe || !elements) {
-      return
+      return;
     }
 
-    const card = elements.getElement(CardElement)
+    const card = elements.getElement(CardElement);
 
     if (card == null) {
-      return
+      return;
     }
 
-    // Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
+      type: "card",
       card,
-    })
+    });
 
     if (error) {
-      console.log('[error]', error);
-      setCardError(error.message)
-      setProcessing(false)
-      return
+      console.log("[error]", error);
+      setCardError(error.message);
+      setProcessing(false);
+      return;
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
-      setCardError('')
+      setCardError("");
     }
-    // user role check
-    if(role === 'teacher' || role === 'admin'){
-      toast.error(`${role} Not allow`)
-      return 
-    }
+    console.log(paymentMethod);
+    console.log(user?.displayName, user?.email);
 
-    // confirm payment
     const { error: confirmError, paymentIntent } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -80,38 +72,44 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
             name: user?.displayName,
           },
         },
-      })
-
+      });
+    console.log(paymentIntent);
     if (confirmError) {
-      // console.log(confirmError)
-      setCardError(confirmError.message)
-      setProcessing(false)
-      return
+      console.log(confirmError);
+      setCardError(error);
+      setProcessing(false);
+      return;
     }
 
-    if (paymentIntent.status === 'succeeded') {
-      // console.log(paymentIntent);
+    if (paymentIntent.status === "succeeded") {
+      console.log(paymentIntent);
       const paymentInfo = {
         ...singleClass,
+        paymentUserName: user?.displayName,
+        paymentUserEmail: user?.email,
+        classId: singleClass?._id,
         transactionId: paymentIntent.id,
-      }
+        date: new Date(),
+      };
+      delete paymentInfo._id;
       console.log(paymentInfo);
-
-      try {
-        // 2. save payment info in payment collection (db)
-        const res = await axiosSecure.post('/payment', paymentInfo)
-        if (res.data.insertedId) {
-          toast.success('Payment Successfully')
-          navigate('/dashboard/my-enroll-class')
+    
+        const { data } = await axiosSecure.post("/payment", paymentInfo);
+        console.log(data);
+        closeModal();
+        refetch();
+        if(data.insertedId){
+          toast.success('Enroll succefully')
+          setTimeout(() =>{
+            navigate("/dashboard/my-enroll-class");
+          },2000)
         }
-      }
-      catch (err) {
-        console.log(err)
-        toast.error('Duplicated class not allow')
-      }
-    }
-
+        else{
+          toast.error(error.message)
+        }
+      } 
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -119,37 +117,37 @@ const CheckoutForm = ({ singleClass, closeModal }) => {
           options={{
             style: {
               base: {
-                fontSize: '16px',
-                color: '#424770',
-                '::placeholder': {
-                  color: '#aab7c4',
+                fontSize: "16px",
+                color: "#424770",
+                "::placeholder": {
+                  color: "#aab7c4",
                 },
               },
               invalid: {
-                color: '#9e2146',
+                color: "#9e2146",
               },
             },
           }}
         />
-
-        <div className='flex mt-2 justify-around'>
-          <button type="submit"
-            disabled={!stripe || !clientSecret ||processing}
-            className={`inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${
-              !stripe || !clientSecret ||processing ? 'bg-red-500 cursor-not-allowed' : 'bg-primary'
-            }`}>
-            Pay ${singleClass.price}
+        <div className="flex mt-2 justify-around">
+          <button
+            disabled={!stripe || !clientSecret || processing}
+            type="submit"
+            className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+          >
+            Pay ${singleClass?.price}
           </button>
           <button
+            type="button"
             onClick={closeModal}
-            type='button'
-            className='inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
+            className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
           >
-            Cancel
+            cancel
           </button>
         </div>
       </form>
-      {cardError && <p className='text-red-600 ml-8'>{cardError}</p>}
+      {/* <Toaster richColors position="top-right" /> */}
+      {cardError && <p className="text-red-600">{cardError}</p>}
     </>
   );
 };

@@ -8,7 +8,8 @@ const useStatus = () => {
         queryKey: ['all-status',], 
         queryFn: async() =>{
             const res = await axiosPublic.get('/class/api/status/get');
-            return res.data;
+            return res.data.filter((item) => item.status === "acceped");
+            // return res.data;
         }
     })
 

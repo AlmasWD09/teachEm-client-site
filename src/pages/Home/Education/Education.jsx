@@ -9,6 +9,7 @@ const Education = () => {
             </div>
 
             <div className="w-full md:w-[50%] space-y-3 ">
+                <h1>education here........</h1>
                 <h2 className="text-lg lg:text-3xl font-semibold uppercase w-[300px] lg:w-[500px]">Take the next step toward your personal and professional goals with Coursera.</h2>
                 <p className="w-[300px] lg:w-[400px]">Join now to receive personalized recommendations from the full Coursera catalog.</p>
                 <Link to='/dashboard/my-class'>

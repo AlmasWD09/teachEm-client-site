@@ -7,7 +7,7 @@ import profile from "../../assets/profile.jpg"
 
 const Profile = () => {
   const { user, loading } = useAuth() || {}
-  const {role} = useRole()
+  const [role] = useRole()
   if (loading) return <p>Loading...</p>
   return (
     <div className='flex justify-center items-center h-screen'>

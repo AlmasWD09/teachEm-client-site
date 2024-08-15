@@ -7,36 +7,35 @@ import useTheme from "../../../../hooks/useTheme";
 
 const TeacherRequest = () => {
     const theme = useTheme()
-    const [requestData,refetch] = useRequeste()
+    const [requestData, refetch] = useRequeste()
     const axiosSecure = useAxiosSecure()
-  
+    console.log(requestData);
 
-    const handleApproved = async(id,email) => {
+    const handleApproved = async (id, email) => {
 
         const requestInfo = {
-            role:'teacher',
-            status:'accepted',
+            role: 'teacher',
+            status: 'acceped',
         }
-        const {data} =await axiosSecure.patch(`/requested/api/role/update/${id}`,requestInfo)
-        console.log(data);
+        const { data } = await axiosSecure.patch(`/requested/api/role/update/${id}`, requestInfo)
+        refetch()
 
 
 
         const userRoleUpdate = {
-            role:'teacher',
+            role: 'teacher',
         }
-        const res =await axiosSecure.patch(`/user/api/role/${email}`,userRoleUpdate)
-        console.log(res.data);
+        const { res } = await axiosSecure.patch(`/user/api/role/${email}`, userRoleUpdate)
         refetch()
     }
 
 
 
-    const handleReject = async(id) =>{
+    const handleReject = async (id) => {
         const requestInfo = {
-            status:'reject',
+            status: 'reject',
         }
-        const {data} =await axiosSecure.patch(`/requested/api/role/update/${id}`,requestInfo)
+        const { data } = await axiosSecure.patch(`/requested/api/role/update/${id}`, requestInfo)
         console.log(data);
         refetch()
     }
@@ -156,28 +155,18 @@ const TeacherRequest = () => {
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                 <p className='text-gray-900 whitespace-no-wrap bg-green-100 px-2 py-1 rounded-full'>{reqData?.role}</p>
                                             </td>
-                                            
+
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
-                                                <span
-                                                    aria-hidden='true'
-                                                    className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
-                                                ></span>
-                                                <button 
-                                                 onClick={()=>handleApproved(reqData._id,reqData.email)}
-                                                className='relative'>Approved </button>
-                                            </span>
-                                        </td>
+                                                <button
+                                                    onClick={() => handleApproved(reqData._id, reqData.email)}
+                                                    disabled={reqData.status === 'reject'}
+                                                    className={`${reqData?.status === "reject" ? 'cursor-not-allowed btn btn-sm rounded-full' : 'btn-sm cursor-pointer px-3 py-1 font-semibold bg-green-300 rounded-full'}`}>Approved </button>
+                                            </td>
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                                <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
-                                                    <span
-                                                        aria-hidden='true'
-                                                        className='absolute inset-0 bg-red-200 opacity-50 rounded-full'
-                                                    ></span>
-                                                    <button
-                                                        onClick={() => handleReject(reqData._id)}
-                                                        className='relative'>Reject</button>
-                                                </span>
+                                                <button
+                                                    onClick={() => handleReject(reqData._id)}
+                                                    disabled={reqData.status === 'acceped'}
+                                                    className={`${reqData?.status === "acceped" ? 'cursor-not-allowed btn btn-sm rounded-full' : 'btn-sm cursor-pointer px-3 py-1 font-semibold bg-green-300 rounded-full'}`}>Reject</button>
                                             </td>
                                         </tr>)
                                     }
