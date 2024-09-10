@@ -56,7 +56,7 @@ const MyClassCrud = ({ singleClass, user, closeModal, refetch }) => {
                     <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                         {description}
                     </p>
-                    <h1 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">{price}</h1>
+                    <h1 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-2xl">{price}</h1>
                     <div className="flex justify-between">
                         <div>
                             <p>{user?.displayName || 'Not Found'}</p>
