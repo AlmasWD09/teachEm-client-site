@@ -20,7 +20,7 @@ const Sidebar = () => {
     const [role] = useRole()
     const [isOpen, setIsOpen] = useState(false);
 
-console.log(role);
+
 
     return (
        

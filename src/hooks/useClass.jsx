@@ -5,16 +5,16 @@ import { useQuery } from '@tanstack/react-query';
 
 const useClass = () => {
     const axiosPublic = useAxiosPublic();
-    const {data: classess = [],refetch} = useQuery({
+    const {data: HighestClasse = [],refetch} = useQuery({
         queryKey: ['class',], 
         queryFn: async() =>{
-            const res = await axiosPublic.get('/all-class/api/get');
+            const res = await axiosPublic.get('/higest/enroll-class/api/get');
             return res.data;
         }
     })
 
 
-    return [classess,refetch]
+    return [HighestClasse,refetch]
 };
 
 export default useClass;

@@ -8,8 +8,15 @@ export default {
   theme: {
     extend: {
       colors:{
-        'primary':'#0055d2',
+        'primary':'#2563eb', // blue-600
+        'primaryGray':'#eff6ff',// blue-50
         // 'primary':'#d97706',
+      },
+      fontFamily: {
+        'Urbanist': "'Urbanist, 'sans-serif'",
+      },
+      backgroundImage: {
+        'hero-bg': "url('/Public/study.jpg')",
       }
     },
   },

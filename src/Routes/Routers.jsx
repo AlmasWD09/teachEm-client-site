@@ -22,6 +22,7 @@ import Details from "../pages/Dashboard/Teacher/Details/Details";
 import ClassDetails from "../pages/AllClassess/ClassDetails/ClassDetails";
 import PrivatRoutes from "./PrivatRoutes";
 import SeePrograess from "../pages/Dashboard/Admin/SeePrograess/SeePrograess";
+import Contact from "../pages/contact/Contact";
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             </PrivatRoutes>
           },
         ],
+      },
+      {
+        path:'/contact-us',
+        element:<Contact />
       },
       // sign up and login routes
       {

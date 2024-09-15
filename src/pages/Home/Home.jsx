@@ -1,10 +1,10 @@
 
 import Accroding from "./Accroding/Accroding";
-import Education from "./Education/Education";
 import HigestEnrollClass from "./HigestEnrollClass/HigestEnrollClass";
 import Instructor from "./Instructor/Instructor";
 import OurCourses from "./OurCourses/OurCourses";
 import Slider from "./Slider/Slider";
+import TeachInfo from "./teachInfo/TeachInfo";
 import TeachPartner from "./TeachPartner/TeachPartner";
 import WebsiteInfo from "./WebsiteInfo/WebsiteInfo";
 
@@ -23,7 +23,8 @@ const Home = () => {
             <WebsiteInfo />
             <Instructor />
             <Accroding />
-            <Education />
+            <TeachInfo />
+        
         </div>
     );
 };

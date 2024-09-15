@@ -14,8 +14,8 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className=' bg-white z-10 shadow-sm'>
-            <div className=" px-6 py-4   dark:bg-slate-800">
+        <section className=' bg-white z-50 shadow-sm fixed w-full '>
+            <nav className=" px-6 lg:px-0 py-4   dark:bg-slate-800">
                 <Container>
                     <div className="lg:flex lg:items-center lg:justify-between">
                         <div className="flex items-center justify-between">
@@ -54,17 +54,17 @@ const Navbar = () => {
                                 }`}
                         >
                             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                                <NavLink to='/' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <NavLink to='/' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
                                     Home
                                 </NavLink>
-                                <NavLink to='/all-classes' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <NavLink to='/all-classes' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
                                     All Classes
                                 </NavLink>
-                                <NavLink to='/teach-on' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <NavLink to='/teach-on' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
                                     Teach On ThechEm
                                 </NavLink>
 
-                                <NavLink to='/signUp' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <NavLink to='/signUp' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
                                     SignUp
                                 </NavLink>
                             </div>
@@ -108,8 +108,8 @@ const Navbar = () => {
                         </div>
                     </div>
                 </Container>
-            </div>
-        </div>
+            </nav>
+        </section>
     );
 };
 
