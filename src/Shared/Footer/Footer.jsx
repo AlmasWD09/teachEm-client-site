@@ -41,7 +41,7 @@ const Footer = () => {
                                 </div>
                             </div>
                             {/* link */}
-                            <div className="flex flex-col space-y-2 ">
+                            <div className="flex flex-col space-y-4">
                                 <h1 className="text-3xl font-semibold font-lato">Quick links</h1>
                                 <span className="w-20 h-[3px] rounded-full bg-primary"></span>
                                 <ul>
@@ -54,7 +54,7 @@ const Footer = () => {
                             </div>
 
                             {/*Latest Post*/}
-                            <div className="flex flex-col space-y-2 ">
+                            <div className="flex flex-col space-y-4 ">
                                 <h1 className="text-3xl font-semibold font-lato">Latest Post</h1>
                                 <span className="w-20 h-[3px] rounded-full bg-primary"></span>
                                 <div className="flex gap-3">

@@ -23,6 +23,7 @@ import ClassDetails from "../pages/AllClassess/ClassDetails/ClassDetails";
 import PrivatRoutes from "./PrivatRoutes";
 import SeePrograess from "../pages/Dashboard/Admin/SeePrograess/SeePrograess";
 import Contact from "../pages/contact/Contact";
+import CommonLayout from "../pages/Dashboard/commonLayout/CommonLayout";
 
 
 const router = createBrowserRouter([
@@ -66,11 +67,18 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login />
       },
+
+
       // dashboard layouts
       {
         path:'/dashboard',
         element:<DashboardLayout />,
         children:[
+          // common layout
+          {
+            path:'/dashboard',
+            element:<CommonLayout />
+          },
           //========== student dashboard related routes start ==============
           {
             path:'my-enroll-class',

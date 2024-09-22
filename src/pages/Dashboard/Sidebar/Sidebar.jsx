@@ -1,6 +1,4 @@
 
-
-// ****************
 import { IoMdClose } from "react-icons/io";
 import { TiThMenu } from "react-icons/ti";
 import { Link } from "react-router-dom";
@@ -25,17 +23,10 @@ const Sidebar = () => {
     return (
        
         <>
-            <div className="bg-gray-100 text-gray-800 lg:h-screen py-4 md:px-2">
+            <div className=" text-gray-800 bg-gray-100 pb-8 shadow border p-4 rounded-b-md">
 
                 <div className="flex justify-between items-center bg-green-200">
-                    {/* website name and logo */}
-                    <div className="w-full flex items-center gap-1 rounded-md lg:shadow-md p-4">
-                        <Link to='/' className="flex items-center">
-                            <img src={img01} alt="" />
-                            <h2 className="text-2xl font-bold">Teach<span className="text-primary">Em</span></h2>
-                        </Link>
-                    </div>
-
+             
                     {/* Mobile menu button */}
                     <div className="lg:hidden pr-4">
                         <button

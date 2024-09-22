@@ -27,7 +27,7 @@ const TeachInfo = () => {
           <h2 className="text-2xl md:text-3xl">Learn from professionals who bring real-world experience to the classroom.</h2>
           <button
           onClick={handleNavigate}
-          className="bg-primary px-8 py-2 rounded-full uppercase">Contact Us</button>
+          className="bg-primaryGray text-slate-900 hover:bg-primary hover:text-white px-8 py-2 rounded-full uppercase">Contact Us</button>
           </div>
           </Container>
         </div>
