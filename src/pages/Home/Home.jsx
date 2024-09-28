@@ -20,10 +20,10 @@ const Home = () => {
             <HigestEnrollClass />
 
             <OurCourses />
-            <WebsiteInfo />a
             <Instructor />
+            <WebsiteInfo />
             <Accroding />
-            <TeachInfo />
+            {/* <TeachInfo /> */}
         
         </div>
     );

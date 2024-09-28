@@ -12,8 +12,8 @@ import { useState } from "react";
 const OurCourses = () => {
     const [feedbackData] = useFeedback();
     const [progress, setProgress] = useState(0);
-
-    var settings = {
+    console.log(setProgress);
+    const settings = {
         dots: true,
         infinite: true,
         speed: 500,
@@ -23,8 +23,8 @@ const OurCourses = () => {
 
 
 
-        nextArrow : <NextArrow />,
-        prevArrow : <PrevArrow />,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -64,34 +64,34 @@ const OurCourses = () => {
                         </p>
                     </div>
 
-                        <div className='relative  mt-24 lg:mt-8'>
+                    <div className='relative  mt-24 lg:mt-8'>
                         <Slider {...settings}>
                             {
                                 feedbackData.map((singleData, idx) => {
                                     return (
                                         <div key={idx}
-                                            className=" bg-gray-200 rounded-lg shadow-lg " >
+                                            className=" bg-primaryGray rounded-lg shadow-lg " >
                                             <img
-                                                className=" object-cover w-full lg:h-96"
+                                                className=" object-cover w-full lg:h-68"
                                                 src={singleData.photo}
                                                 alt="avatar" />
                                             <div className="space-y-2 p-4">
-                                                <p className="text-sm text-gray-700 dark:text-gray-200">{singleData.title}</p>
+                                                <p className="font-semibold text-gray-800  md:text-xl">{singleData.title}</p>
                                                 <p className="text-sm text-gray-700 dark:text-gray-200">{singleData.name}</p>
                                                 <p className="text-sm text-gray-700 dark:text-gray-200">rating : {singleData.rating}</p>
-                                                
+
                                             </div>
                                         </div>
                                     )
                                 })
                             }
-                            </Slider>
-                            <div className="h-[2px] bg-gray-400 w-[250px] absolute -top-[15px] right-0">
-                                <div className="bg-primary absolute h-[100%] transition-all" style={{width: `${progress}%`}}></div>
-                            </div>
+                        </Slider>
+                        <div className="h-[2px] bg-gray-400 w-[250px] absolute -top-[15px] right-0">
+                            <div className="bg-primary absolute h-[100%] transition-all" style={{ width: `${progress}%` }}></div>
                         </div>
-                        
-              
+                    </div>
+
+
                 </Container>
             </section>
         </>

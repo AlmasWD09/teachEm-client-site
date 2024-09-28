@@ -1,10 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-
+import ScrollTrigger from 'react-scroll-trigger';
+import Container from "../../../Shared/Container/Container";
+import { useState } from "react";
+import CountUp from 'react-countup';
 
 
 const WebsiteInfo = () => {
     const axiosSecure = useAxiosSecure();
+    const [counterState, setCounterState] = useState(false);
+
     const { data: totalData = {},} = useQuery({
         queryKey: ['total-data'],
         queryFn: async () => {
@@ -13,26 +18,48 @@ const WebsiteInfo = () => {
         },
       })
 
-
     return (
-        <div className="lg:mt-10">
-            <h1 className="text-3xl font-semibold uppercase text-center mb-5">Website All Information</h1>
+        <>
+        <ScrollTrigger onEnter={() => setCounterState(true)} onExit={() => setCounterState(false)}>
+            <div className="bg-primaryGray  py-8 lg:mt-20">
+                <Container>
+                    <div className=" flex flex-col md:flex-row justify-center md:justify-evenly gap-20 md:gap-0 text-center py-10">
+                        <div className="flex flex-col justify-center items-center px-10 space-y-4">
+                          
+                            {
+                                counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.user} duration={5}>
+                                    {totalData.user}
+                                </CountUp>
+                            }
+                            <p className="text-center text-base lg:text-lg text-gray-600">total users!</p>
+                        </div>
 
-            <div className="bg-gray-300 flex flex-col lg:flex-row justify-center py-8 rounded-lg">
-                <div className="w-[30%] text-center">
-                    <p className="text-5xl text-primary font-semibold">{totalData.user}</p>
-                    <p className="text-4xl font-semibold">Total User</p>
-                </div>
-                <div className="w-[30%] text-center">
-                <p className="text-5xl text-red-400 font-semibold">{totalData.classes}</p>
-                <p className="text-4xl font-semibold">Total Classes</p>
-                </div>
-                <div className="w-[30%] text-center">
-                <p className="text-5xl text-green-400 font-semibold">{totalData.enroll}</p>
-                <p className="text-4xl font-semibold">Total Enrollment</p>
-                </div>
+                        
+                        <div className="flex flex-col justify-center items-center px-10 space-y-4">
+                         
+                            {
+                                counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.classes} duration={5}>
+                                    {totalData.classes}
+                                </CountUp>
+                            }
+                            <p className="text-center text-base lg:text-lg text-gray-600">total classes!</p>
+                        </div>
+
+                        <div className="flex flex-col justify-center items-center px-10 space-y-4">
+                      
+
+                            {
+                                counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.enroll} duration={5}>
+                                    {totalData.enroll}
+                                </CountUp>
+                            }
+                            <p className="text-center text-base lg:text-lg text-gray-600">total enroll!</p>
+                        </div>
+                    </div>
+                </Container>
             </div>
-        </div>
+        </ScrollTrigger>
+    </>
     );
 };
 

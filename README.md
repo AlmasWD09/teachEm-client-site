@@ -42,6 +42,7 @@
 - [@stripe/stripe-js](https://www.npmjs.com/package/@stripe/stripe-js)
 - [firebase](https://www.npmjs.com/package/firebase)
 - [react-slick](https://www.npmjs.com/package/react-slick)
+- [react-scroll-trigger](https://www.npmjs.com/package/react-scroll-trigger)
 
 ## Clone repository Client-site (NEED)
 -[npm i]
