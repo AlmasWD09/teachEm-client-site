@@ -20,7 +20,7 @@ const Home = () => {
             <HigestEnrollClass />
 
             <OurCourses />
-            <WebsiteInfo />
+            <WebsiteInfo />a
             <Instructor />
             <Accroding />
             <TeachInfo />

@@ -8,7 +8,7 @@ const DashboardNav = () => {
         navigate('/')
     }
     return (
-        <div className="sticky top-0 left-0 z-[99999] w-full h-[80px] bg-green-300 hidden lg:block">
+        <div className="sticky top-0 left-0 z-[99999] w-full h-[80px] bg-seconderyGray hidden lg:block">
             <div className="flex justify-between items-center px-12 h-full">
                 <div>
                     <Link to='/' className="flex items-center">
@@ -20,7 +20,7 @@ const DashboardNav = () => {
                 <div>
                     <button 
                     onClick={handleNavigate}
-                    className="bg-primary text-white rounded-md font-medium text-xl px-6 py-2">Home</button>
+                    className="bg-secondery hover:bg-primary text-white rounded-md font-medium text-xl px-6 py-2">Home</button>
                 </div>
             </div>
         </div>

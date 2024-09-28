@@ -41,7 +41,7 @@ const MyClassCrud = ({ singleClass, user, closeModal, refetch }) => {
     }
     return (
         <div>
-            <div className="flex bg-gray-200 rounded-lg shadow-xl dark:bg-slate-800">
+            <div className="flex bg-gray-100 rounded-lg shadow-xl dark:bg-slate-800">
                 <div className="flex justify-center items-center px-4 ">
                     <div
                         className="w-40 rounded-lg"

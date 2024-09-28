@@ -60,8 +60,8 @@ if (res.data.success) {
 
 }
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
+        <section className="w-full p-6 lg:mx-auto bg-gray-50 rounded-md shadow-md dark:bg-gray-800 md:mt-20 px-4 mt-10 md:px-8 lg:px-0 lg:mt-4">
+            <form onSubmit={handleSubmit(onSubmit)} className=" p-4">
 
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div>
@@ -74,11 +74,11 @@ if (res.data.success) {
                     </div>
                     <div>
                         <label className="text-gray-700 dark:text-gray-200">User Name</label>
-                        <input id="" name="name" type="text" defaultValue={user?.displayName} readOnly={user?.displayName} className="disabled:cursor-not-allowed block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-primary focus:ring-primary focus:ring-opacity-40 dark:focus:border-primary focus:outline-none focus:ring" />
+                        <input id="" name="name" type="text" defaultValue={user?.displayName} readOnly={user?.displayName} className="disabled:cursor-not-allowed block w-full px-4 py-2 mt-2 text-gray-400 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-primary focus:ring-primary focus:ring-opacity-40 dark:focus:border-primary focus:outline-none focus:ring" />
                     </div>
                     <div>
                         <label className="text-gray-700 dark:text-gray-200">User Email</label>
-                        <input id="" name="email" type="email" defaultValue={user?.email} readOnly={user?.email} className="disabled:cursor-not-allowed block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-primary focus:ring-primary focus:ring-opacity-40 dark:focus:border-primary focus:outline-none focus:ring" />
+                        <input id="" name="email" type="email" defaultValue={user?.email} readOnly={user?.email} className="disabled:cursor-not-allowed block w-full px-4 py-2 mt-2 text-gray-400 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-primary focus:ring-primary focus:ring-opacity-40 dark:focus:border-primary focus:outline-none focus:ring" />
                     </div>
 
 
@@ -95,7 +95,7 @@ if (res.data.success) {
 
                     <div>
                         <label className="text-gray-700 dark:text-gray-200">Description</label>
-                        <textarea name="description" id="" {...register("description", { required: true })} className="resize-none block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-primary focus:ring-primary focus:ring-opacity-40 dark:focus:border-primary focus:outline-none focus:ring">
+                        <textarea name="description" id="" {...register("description", { required: true })} className="resize-none block w-full px-4 py-4 md:py-8 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-primary focus:ring-primary focus:ring-opacity-40 dark:focus:border-primary focus:outline-none focus:ring">
                         </textarea>
                     </div>
 

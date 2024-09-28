@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { CiDark, CiLight } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
-import { TiThMenu } from "react-icons/ti";
 import { Link, NavLink } from "react-router-dom";
 import useTheme from "../../hooks/useTheme";
 import useAuth from "../../hooks/useAuth";
 import icon from "../../assets/icon.png"
 import Container from "../Container/Container";
+import { RiMenu3Fill } from "react-icons/ri";
 
 const Navbar = () => {
     const { user, logOut } = useAuth()
@@ -15,7 +15,7 @@ const Navbar = () => {
 
     return (
         <section className=' bg-white z-50 shadow-sm fixed w-full '>
-            <nav className=" px-6 lg:px-0 py-4   dark:bg-slate-800">
+            <nav className=" px-3 md:px-0 py-4   dark:bg-slate-800">
                 <Container>
                     <div className="lg:flex lg:items-center lg:justify-between">
                         <div className="flex items-center justify-between">
@@ -32,15 +32,15 @@ const Navbar = () => {
                             </div>
 
                             {/* Mobile menu button */}
-                            <div className="flex lg:hidden">
+                            <div className="bg-primary  px-4 py-2 rounded-md flex lg:hidden">
                                 <button
                                     onClick={() => setIsOpen(!isOpen)}
                                     type="button"
-                                    className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                                    className="  text-white"
                                     aria-label="toggle menu"
                                 >
                                     {!isOpen ? (
-                                        <TiThMenu className="text-2xl " />
+                                        <RiMenu3Fill className="text-2xl " />
                                     ) : (
                                         <IoMdClose className="text-2xl " />
                                     )}
@@ -50,7 +50,7 @@ const Navbar = () => {
 
                         {/* Mobile Menu open: "block", Menu closed: "hidden" */}
                         <div
-                            className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'
+                            className={` mt-4 absolute pb-8 lg:pb-0 shadow lg:shadow-none border lg:border-none rounded-b-md lg:rounded-b-md inset-x-0 z-20 w-[90%] px-6 py-4 transition-all duration-300 ease-in-out bg-gray-100 dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center ${isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'
                                 }`}
                         >
                             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">

@@ -10,7 +10,8 @@ export default {
       colors:{
         'primary':'#2563eb', // blue-600
         'primaryGray':'#eff6ff',// blue-50
-        // 'primary':'#d97706',
+        'secondery':'#60a5fa',// blue-400
+        'seconderyGray':'#dbeafe',// blue-100
       },
       fontFamily: {
         'Urbanist': "'Urbanist, 'sans-serif'",
