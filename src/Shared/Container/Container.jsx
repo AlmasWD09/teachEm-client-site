@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const Container = ({children}) => {
     return (
@@ -8,5 +8,8 @@ const Container = ({children}) => {
     );
 };
 
-
+// props-type validation
+Container.propTypes = {
+  children: PropTypes.array,
+};
 export default Container;

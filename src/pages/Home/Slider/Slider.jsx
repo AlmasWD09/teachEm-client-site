@@ -5,7 +5,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import "./Slider.css"
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination,  } from 'swiper/modules';
 import Container from '../../../Shared/Container/Container';
 
 const Slider = () => {
@@ -22,9 +22,9 @@ const Slider = () => {
                     clickable: true,
                     activeClass: 'pagination-active', //active class add
                 }}
-                navigation={true}
+              
                 loop={true}
-                modules={[Autoplay, Pagination, Navigation]}
+                modules={[Autoplay, Pagination, ]}
                 className="mySwiper">
 
                 <SwiperSlide>

@@ -11,7 +11,7 @@ const HigestEnrollClass = () => {
     const classesToDisplay = showAll ? HighestClasse : HighestClasse.slice(0, 4);
     return (
         <>
-       <section className="mt-20 border-2 border-red-500">
+       <section className="mt-20 ">
                 <Container>
                     <div>
                         <div className="text-center">

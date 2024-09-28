@@ -1,85 +1,101 @@
-
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import useFeedback from '../../../hooks/useFeedback';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Container from '../../../Shared/Container/Container';
+import Slider from "react-slick";
+import PrevArrow from "../../../components/SliderArrow/PrevArrow";
+import NextArrow from "../../../components/SliderArrow/NextArrow";
+import { useState } from "react";
 const OurCourses = () => {
-    const [feedbackData] = useFeedback()
-    console.log(feedbackData);
+    const [feedbackData] = useFeedback();
+    const [progress, setProgress] = useState(0);
+
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+
+
+
+        nextArrow : <NextArrow />,
+        prevArrow : <PrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+
+    };
     return (
         <>
-           <Container>
-           <div className="bg-gray-300 flex justify-center py-4 rounded">
-                <h1 className="text-3xl font-semibold ">Feedback For Every Student</h1>
-            </div>
-            <div className='flex justify-between'>
-                <div className='bg-green-400 w-[50%]'>
-                    <h1>content</h1>
-                </div>
-                <div className='bg-gray-200 w-[50%]'>
-                    <Swiper
-                        spaceBetween={30}
-                        centeredSlides={true}
-                        autoplay={{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                        }}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        navigation={true}
-                        modules={[Autoplay, Pagination, Navigation]}
+            <section className='mt-20'>
+                <Container>
+                    <div className="text-center">
+                        <h1 className="text-2xl font-bold text-primary capitalize lg:text-3xl">Student Feedback</h1>
+                        <p className="max-w-lg mx-auto mt-4 text-gray-500">
+                            Feedback helps improve learning experiences by providing valuable insights on course content, teaching methods, and overall engagement.
+                        </p>
+                    </div>
 
-                        breakpoints={{
-                            640: {
-                                slidesPerView: 2,
-                                spaceBetween: 20,
-                            },
-                            768: {
-                                slidesPerView: 4,
-                                spaceBetween: 40,
-                            },
-                            1024: {
-                                slidesPerView: 5,
-                                spaceBetween: 50,
-                            },
-                        }}
-                        className="mySwiper">
-                        {
-                            feedbackData.map(singleData => <SwiperSlide key={singleData._id}>
-                                <div
-                                    className=" bg-gray-200 rounded-lg shadow-lg " >
-                                    <img
-                                        className=" object-cover w-full h-56"
-                                        src={singleData.photo}
-                                        alt="avatar" />
-                                    <div className="space-y-2 p-4">
-                                        <p className="text-sm text-gray-700 dark:text-gray-200">{singleData.title}</p>
-                                        <p className="text-sm text-gray-700 dark:text-gray-200">{singleData.name}</p>
-                                        <p className="text-sm text-gray-700 dark:text-gray-200">rating : {singleData.rating}</p>
-                                        <button
-                                            className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-primary/60 focus:outline-none focus:bg-primary">Continue</button>
-                                    </div>
-                                </div>
-                            </SwiperSlide>)
-                        }
-
-
-                    </Swiper>
-                </div>
-            </div>
-           </Container>
+                        <div className='relative  mt-24 lg:mt-8'>
+                        <Slider {...settings}>
+                            {
+                                feedbackData.map((singleData, idx) => {
+                                    return (
+                                        <div key={idx}
+                                            className=" bg-gray-200 rounded-lg shadow-lg " >
+                                            <img
+                                                className=" object-cover w-full lg:h-96"
+                                                src={singleData.photo}
+                                                alt="avatar" />
+                                            <div className="space-y-2 p-4">
+                                                <p className="text-sm text-gray-700 dark:text-gray-200">{singleData.title}</p>
+                                                <p className="text-sm text-gray-700 dark:text-gray-200">{singleData.name}</p>
+                                                <p className="text-sm text-gray-700 dark:text-gray-200">rating : {singleData.rating}</p>
+                                                
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                            </Slider>
+                            <div className="h-[2px] bg-gray-400 w-[250px] absolute -top-[15px] right-0">
+                                <div className="bg-primary absolute h-[100%] transition-all" style={{width: `${progress}%`}}></div>
+                            </div>
+                        </div>
+                        
+              
+                </Container>
+            </section>
         </>
     );
 };
 
 export default OurCourses;
-

@@ -7,6 +7,26 @@
 
 /* navbar menu */
 nav a.active {
-    color: #0055d2;
-    font-weight:600;
-  }
+  color: #0055d2;
+  font-weight: 600;
+}
+
+
+/*============ feedback section start ========== */
+.slick-slide>div{
+  margin: 0 30px;
+}
+
+.slick-slide>div:nth-child(1){
+margin-left: 0;
+}
+
+.slick-list{
+  margin-right: -30px;
+}
+
+/*============ feedback section end =========== */
+
+
+
+
