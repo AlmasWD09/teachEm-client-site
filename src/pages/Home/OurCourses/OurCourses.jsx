@@ -86,9 +86,10 @@ const OurCourses = () => {
                                 })
                             }
                         </Slider>
-                        <div className="h-[2px] bg-gray-400 w-[250px] absolute -top-[15px] right-0">
+                        {/* progress here... */}
+                        {/* <div className="h-[2px] bg-gray-400 w-[250px] absolute -top-[15px] right-0">
                             <div className="bg-primary absolute h-[100%] transition-all" style={{ width: `${progress}%` }}></div>
-                        </div>
+                        </div> */}
                     </div>
 
 

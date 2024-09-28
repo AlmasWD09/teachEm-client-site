@@ -26,9 +26,9 @@ const Navbar = () => {
                                 </Link>
 
                                 {/* toggle theme add */}
-                                <button onClick={handleChangeTheme} className="border-2 border-primary p-1 rounded-full dark:border-slate-400">
+                                {/* <button onClick={handleChangeTheme} className="border-2 border-primary p-1 rounded-full dark:border-slate-400">
                                     {mode === 'dark' ? <CiLight className="text-3xl text-primary" /> : <CiDark className="text-3xl text-primary" />}
-                                </button>
+                                </button> */}
                             </div>
 
                             {/* Mobile menu button */}
@@ -67,8 +67,8 @@ const Navbar = () => {
                                     Contact Us
                                 </NavLink>
 
-                                <NavLink to='/signUp' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
-                                    SignUp
+                                <NavLink to='/login' className="text-xl font-bold px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
+                                    Login
                                 </NavLink>
                             </div>
                             {
@@ -104,8 +104,9 @@ const Navbar = () => {
                                     </ul>
                                 </div>
                                     :
-                                    <Link to='/login'>
-                                        <button className="px-5 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Login</button>
+                                    <Link to='/signUp'>
+                                        <button className="px-5 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primary
+                                        rounded-md hover:bg-secondery focus:outline-none focus:bg-secondery">SignUp</button>
                                     </Link>
                             }
                         </div>

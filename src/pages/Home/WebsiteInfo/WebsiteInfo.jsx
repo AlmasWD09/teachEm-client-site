@@ -10,56 +10,56 @@ const WebsiteInfo = () => {
     const axiosSecure = useAxiosSecure();
     const [counterState, setCounterState] = useState(false);
 
-    const { data: totalData = {},} = useQuery({
+    const { data: totalData = {}, } = useQuery({
         queryKey: ['total-data'],
         queryFn: async () => {
-          const { data } = await axiosSecure.get('/totalData/count/related/api',);
-          return data;
+            const { data } = await axiosSecure.get('/totalData/count/related/api',);
+            return data;
         },
-      })
+    })
 
     return (
         <>
-        <ScrollTrigger onEnter={() => setCounterState(true)} onExit={() => setCounterState(false)}>
-            <div className="bg-primaryGray  py-8 lg:mt-20">
-                <Container>
-                    <div className=" flex flex-col md:flex-row justify-center md:justify-evenly gap-20 md:gap-0 text-center py-10">
-                        <div className="flex flex-col justify-center items-center px-10 space-y-4">
-                          
-                            {
-                                counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.user} duration={5}>
-                                    {totalData.user}
-                                </CountUp>
-                            }
-                            <p className="text-center text-base lg:text-lg text-gray-600">total users!</p>
-                        </div>
+            <ScrollTrigger onEnter={() => setCounterState(true)} onExit={() => setCounterState(false)}>
+                <div className="bg-primaryGray  py-8 lg:mt-20">
+                    <Container>
+                        <div className=" flex flex-col md:flex-row justify-center md:justify-evenly gap-20 md:gap-0 text-center py-10">
+                            <div className="flex flex-col justify-center items-center px-10 space-y-4">
 
-                        
-                        <div className="flex flex-col justify-center items-center px-10 space-y-4">
-                         
-                            {
-                                counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.classes} duration={5}>
-                                    {totalData.classes}
-                                </CountUp>
-                            }
-                            <p className="text-center text-base lg:text-lg text-gray-600">total classes!</p>
-                        </div>
+                                {
+                                    counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.user} duration={5}>
+                                        {totalData.user}
+                                    </CountUp>
+                                }
+                                <p className="text-center text-base lg:text-lg text-gray-600">total users!</p>
+                            </div>
 
-                        <div className="flex flex-col justify-center items-center px-10 space-y-4">
-                      
 
-                            {
-                                counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.enroll} duration={5}>
-                                    {totalData.enroll}
-                                </CountUp>
-                            }
-                            <p className="text-center text-base lg:text-lg text-gray-600">total enroll!</p>
+                            <div className="flex flex-col justify-center items-center px-10 space-y-4">
+
+                                {
+                                    counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.classes} duration={5}>
+                                        {totalData.classes}
+                                    </CountUp>
+                                }
+                                <p className="text-center text-base lg:text-lg text-gray-600">total classes!</p>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center px-10 space-y-4">
+
+
+                                {
+                                    counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.enroll} duration={5}>
+                                        {totalData.enroll}
+                                    </CountUp>
+                                }
+                                <p className="text-center text-base lg:text-lg text-gray-600">total enroll!</p>
+                            </div>
                         </div>
-                    </div>
-                </Container>
-            </div>
-        </ScrollTrigger>
-    </>
+                    </Container>
+                </div>
+            </ScrollTrigger>
+        </>
     );
 };
 
