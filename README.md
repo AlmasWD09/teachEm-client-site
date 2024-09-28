@@ -1,7 +1,7 @@
 
 # TechEm
 
-- [Live Site](url):https://teach-em-a044e.web.app
+- [Live Site](url):https://teach-em-client-site.vercel.app
 - [server-site-github-link](url):https://github.com/AlmasWD09/teachEm-server-site
 <br/>
 - admin userName: almas@gmail.com
