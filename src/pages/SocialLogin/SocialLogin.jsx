@@ -37,18 +37,15 @@ const SocialLogin = () => {
     }
     return (
         <>
-
             <div className="space-y-3">
-
-                <div className="flex justify-center">
+                <div className="flex items-center mt-6 -mx-2">
                     <button
+                        type="button"
                         onClick={() => handleSocialLogin(googleLogin)}
-                        className=" flex items-center bg-green-200 dark:bg-slate-800 rounded-lg p-1 px-4 my-3">
-                        <p className="text-2xl"><FcGoogle className="mr-2" /></p>
-                        Continue with Google
+                        className="w-full px-6 py-2 mx-2 text-sm font-medium border transition-colors duration-300 transform  rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
+                    >
+                        <span className="flex items-center justify-center"><FcGoogle className="mx-2 text-2xl"/> Sign in with Google</span>
                     </button>
-                </div>
-                <div className="flex items-center">
                 </div>
             </div>
         </>

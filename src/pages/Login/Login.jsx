@@ -42,7 +42,7 @@ const Login = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-8 rounded-lg">
                         <div className="">
-                            <h2 className=" pb-4 font-medium text-center text-gray-800 capitalize border-blue-500 dark:border-blue-400 dark:text-white">Please Login</h2>
+                            <h2 className="pb-4 text-4xl font-semibold text-center text-gray-800 capitalize border-blue-500 dark:border-blue-400 dark:text-white">Please Login</h2>
                         </div>
                         <div className="relative flex items-center mt-6">
                             <span className="absolute">
@@ -68,7 +68,7 @@ const Login = () => {
                                     maxLength: 20,
                                     pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/
                                 })} />
-                                {/* eye icon setup */}
+                            {/* eye icon setup */}
                             <p className="absolute top-6 right-3 cursor-pointer"
                                 onClick={() => setShowPassword(!showPassword)}>
                                 {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
@@ -80,7 +80,7 @@ const Login = () => {
                         <small>{errors.password?.type === 'pattern' && <span className="text-red-400">at least one uppercase letter, one lowercase letter, one special characte</span>}</small>
 
                         <div className="mt-6">
-                            <button type="submit" className="disabled:bg-gray-200 w-full disabled:cursor-not-allowed px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg ">
+                            <button type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                                 Login
                             </button>
 
@@ -89,6 +89,7 @@ const Login = () => {
                                     <Link to='/signUp' className="text-blue-500 font-semibold dark:text-blue-400"> SignUp</Link> </p>
                             </div>
                         </div>
+
                         <SocialLogin />
                     </form>
                 </div>

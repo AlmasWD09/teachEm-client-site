@@ -27,7 +27,7 @@ const WebsiteInfo = () => {
                             <div className="flex flex-col justify-center items-center px-10 space-y-4">
 
                                 {
-                                    counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.user} duration={5}>
+                                    counterState && <CountUp className="text-6xl lg:text-[70px] font-semibold" start={0} end={totalData.user} duration={5}>
                                         {totalData.user}
                                     </CountUp>
                                 }
@@ -38,7 +38,7 @@ const WebsiteInfo = () => {
                             <div className="flex flex-col justify-center items-center px-10 space-y-4">
 
                                 {
-                                    counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.classes} duration={5}>
+                                    counterState && <CountUp className="text-6xl lg:text-[70px] font-semibold" start={0} end={totalData.classes} duration={5}>
                                         {totalData.classes}
                                     </CountUp>
                                 }
@@ -49,7 +49,7 @@ const WebsiteInfo = () => {
 
 
                                 {
-                                    counterState && <CountUp className="text-3xl md:text-4xl lg:text-[70px] font-semibold" start={0} end={totalData.enroll} duration={5}>
+                                    counterState && <CountUp className="text-6xl lg:text-[70px] font-semibold" start={0} end={totalData.enroll} duration={5}>
                                         {totalData.enroll}
                                     </CountUp>
                                 }

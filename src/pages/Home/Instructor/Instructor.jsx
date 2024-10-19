@@ -3,7 +3,7 @@ import photo from "../../../assets/partner-logo/instactor.png"
 
 const Instructor = () => {
     return (
-        <div className=" h-[400px] flex flex-col md:flex-row justify-center items-center gap-10 mt-20">
+        <div className=" md:h-[400px] flex flex-col md:flex-row justify-center items-center gap-10 my-20 px-4">
             <div className="md:w-[50%] flex justify-center lg:justify-end">
                 <img className="" src={photo} alt="" />
             </div>

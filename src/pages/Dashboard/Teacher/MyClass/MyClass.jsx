@@ -22,7 +22,7 @@ const MyClass = () => {
     if(loading || isloading)return <LoadindSpenier />
     return (
         <>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-2 pt-20 lg:pt-0 mb-5">
          {
             teacherData.map(singleClass=><MyClassCrud
             key={singleClass._id}

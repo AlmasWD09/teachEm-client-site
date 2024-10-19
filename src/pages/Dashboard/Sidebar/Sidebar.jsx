@@ -24,7 +24,7 @@ const Sidebar = () => {
         <>
             <div className=" text-gray-800 lg:bg-gray-100 lg:pb-8 lg:shadow lg:border lg:p-4 lg:rounded-b-md ">
                 {/* dashboar navbar */}
-                <div className="flex justify-between items-center px-3 py-3 fixed w-full bg-red-200 lg:hidden">
+                <div className="flex justify-between items-center px-3 py-3 fixed w-full bg-seconderyGray lg:hidden">
                     <div className="">
                         <Link to='/' className="flex items-center">
                             <img src={icon} alt="" />

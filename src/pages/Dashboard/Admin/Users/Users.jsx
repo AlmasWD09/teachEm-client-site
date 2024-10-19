@@ -7,23 +7,24 @@ import useTheme from "../../../../hooks/useTheme";
 
 const Users = () => {
     const theme = useTheme()
-    const [users,refetch] = useAllUser()
+    const [users, refetch] = useAllUser()
     const axiosSecure = useAxiosSecure()
 
     const handleChangeRole = (id) => {
         const requestInfo = {
             role: 'admin',
         }
-        const {res} = axiosSecure.patch(`/user/api/role/update/${id}`, requestInfo)
+        const { res } = axiosSecure.patch(`/user/api/role/update/${id}`, requestInfo)
+        console.log(res);
         refetch()
     }
     return (
         <>
-            <div className='container mx-auto px-4 sm:px-8'>
+            <div className='container mx-auto px-4 pt-10 lg:pt-0'>
                 <Helmet>
                     <title>TeaceEm || Users</title>
                 </Helmet>
-                <div className='py-8'>
+                <div className=''>
                     <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
                         <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
                             <table className='min-w-full leading-normal'>
@@ -53,12 +54,6 @@ const Users = () => {
                                         >
                                             Role
                                         </th>
-                                        {/* <th
-                                            scope='col'
-                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                                        >
-                                            Status
-                                        </th> */}
 
                                         <th
                                             scope='col'
@@ -68,7 +63,6 @@ const Users = () => {
                                         </th>
                                     </tr>
                                 </thead>
-
 
                                 <tbody>
                                     {
@@ -85,17 +79,15 @@ const Users = () => {
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                 <p className='text-gray-900 whitespace-no-wrap'>{singleUser?.role}</p>
                                             </td>
-                                            <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                            <td className='md:px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                 <button
                                                     disabled={singleUser.role === 'admin'}
                                                     onClick={() => handleChangeRole(singleUser._id)}
-                                                    className={`${singleUser?.role === "admin" ? 'cursor-not-allowed btn btn-sm rounded-full' : 'btn-sm cursor-pointer px-3 py-1 font-semibold bg-green-300 rounded-full'}`}>Make Admin</button>
+                                                    className={`${singleUser?.role === "admin" ? 'cursor-not-allowed md:btn md:btn-sm rounded-full' : 'md:btn-sm cursor-pointer px-1 py-1 md:px-3 md:py-1 md:font-semibold bg-green-300 rounded-full'}`}>Make Admin</button>
                                             </td>
                                         </tr>)
                                     }
                                 </tbody>
-
-
                             </table>
                         </div>
                     </div>

@@ -46,7 +46,7 @@ const TeacherRequest = () => {
 
     return (
         <>
-            <div className='container mx-auto px-4 sm:px-8'>
+            <div className='container mx-auto px-4 sm:px-8 pt-10 lg:pt-0'>
                 <Helmet>
                     <title>TeaceEm || Teacher Requeste</title>
                 </Helmet>

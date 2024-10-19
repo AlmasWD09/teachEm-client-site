@@ -43,11 +43,11 @@ const AllClass = () => {
 
     return (
         <>
-            <div className='container mx-auto px-4 sm:px-8'>
+            <div className='container mx-auto px-4 sm:px-8 pt-10 lg:pt-0'>
                 <Helmet>
                     <title>TeaceEm || All Class</title>
                 </Helmet>
-                <div className='py-8 '>
+                <div className=''>
                     <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto '>
                         <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
                             <table className='min-w-full leading-normal'>
@@ -105,8 +105,6 @@ const AllClass = () => {
                                     </tr>
                                 </thead>
 
-
-
                                 <tbody>
                                     {classess.map(singleClass => <tr key={singleClass._id}>
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -149,46 +147,18 @@ const AllClass = () => {
 
                                         </td>
 
-                                        {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
-                                                <span
-                                                    aria-hidden='true'
-                                                    className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
-                                                ></span>
-                                                <button
-                                                    onClick={() => handleApproved(singleClass._id)}
-                                                    className='relative'>See Progress</button>
-                                            </span>
-                                        </td> */}
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            {/* <span
-                                                    aria-hidden='true'
-                                                    className='absolute inset-0 bg-green-300 rounded-full'
-                                                ></span> */}
                                             <button
                                                 disabled={singleClass?.status !== "acceped" || singleClass?.status === "reject"}
                                                 onClick={() => handleSeeProgaess(singleClass._id)}
                                                 className={`${singleClass?.status === "pending" || singleClass?.status === "reject" ? 'cursor-not-allowed btn btn-sm rounded-full' : 'btn-sm cursor-pointer px-3 py-1 font-semibold bg-green-300 rounded-full'}`}>SeeProgress</button>
                                         </td>
-                                        {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
-                                                <span
-                                                    aria-hidden='true'
-                                                    className='absolute inset-0 bg-red-200 opacity-50 rounded-full'
-                                                ></span>
-                                                <button
-                                                    onClick={() => handleReject(singleClass._id)}
-                                                    className='relative'>Reaject</button>
-                                            </span>
-                                        </td> */}
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                             <button className='cursor-none'>{singleClass.status}</button>
                                         </td>
                                     </tr>)
                                     }
                                 </tbody>
-
-
                             </table>
                         </div>
                     </div>
