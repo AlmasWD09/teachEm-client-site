@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { CiDark, CiLight } from "react-icons/ci";
+
 import { IoMdClose } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
-import useTheme from "../../hooks/useTheme";
 import useAuth from "../../hooks/useAuth";
 import icon from "../../assets/icon.png"
 import Container from "../Container/Container";
@@ -10,7 +9,6 @@ import { RiMenu3Fill } from "react-icons/ri";
 
 const Navbar = () => {
     const { user, logOut } = useAuth()
-    const { handleChangeTheme, mode } = useTheme()
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -63,10 +61,6 @@ const Navbar = () => {
                                 <NavLink to='/teach-on' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
                                     Teach On ThechEm
                                 </NavLink>
-                                <NavLink to='/contact-us' className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
-                                    Contact Us
-                                </NavLink>
-
                                 <NavLink to='/login' className="text-xl font-bold px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:text-primary">
                                     Login
                                 </NavLink>

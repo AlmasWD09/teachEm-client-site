@@ -31,6 +31,7 @@ const UpdatedModal = ({ singleClass, refetch, closeModal, isOpen, setIsOpen }) =
                 price: parseFloat(data.price),
                 description: data.description,
             }
+            console.log(updateItem);
             const menuRes = await axiosSecure.put(`/class/api/updated/${_id}`, updateItem);
             if (menuRes.data.modifiedCount > 0) {
                 Swal.fire({

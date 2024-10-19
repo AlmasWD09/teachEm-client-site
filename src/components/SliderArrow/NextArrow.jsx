@@ -5,7 +5,7 @@ const NextArrow = ({onClick}) => {
     return (
         <>
         <div className='absolute right-[30px] -top-[80px]' onClick={onClick}>
-            <div className="bg-primaryGray h-10 lg:h-12 w-10 lg:w-12 rounded  text-2xl grid place-items-center cursor-pointer">
+            <div className="bg-seconderyGray h-10 lg:h-12 w-10 lg:w-12 rounded  text-2xl grid place-items-center cursor-pointer">
                 <BsChevronRight />
             </div>
         </div>

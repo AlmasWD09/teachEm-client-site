@@ -3,14 +3,14 @@ import useClass from "../../../../hooks/useClass";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useTheme from "../../../../hooks/useTheme";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../../../../hooks/useAuth";
+
 
 
 
 
 const AllClass = () => {
     const theme = useTheme()
-    const {user} = useAuth();
+    console.log(theme);
     const navigate = useNavigate()
     const axiosSecure = useAxiosSecure()
     const [classess, refetch] = useClass()
@@ -23,6 +23,7 @@ const AllClass = () => {
             status: 'reject'
         }
         const { data } = await axiosSecure.patch(`/class/api/status/update/${id}`, rejectInfo)
+        // console.log(data);
         refetch()
     }
     const handleApproved = async (id) => {
@@ -31,6 +32,7 @@ const AllClass = () => {
             status: 'acceped',
         }
         const { data } = await axiosSecure.patch(`/class/api/status/update/${id}`, classInfo)
+        // console.log(data);
         refetch()
     }
 
@@ -45,8 +47,8 @@ const AllClass = () => {
                 <Helmet>
                     <title>TeaceEm || All Class</title>
                 </Helmet>
-                <div className='py-8'>
-                    <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
+                <div className='py-8 '>
+                    <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto '>
                         <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
                             <table className='min-w-full leading-normal'>
                                 <thead>
@@ -110,14 +112,22 @@ const AllClass = () => {
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                             <img className="w-20 h-12 object-cover rounded-full" src={singleClass.image} alt="" />
                                         </td>
-                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            <p className='text-gray-900 whitespace-no-wrap'>{singleClass.title}</p>
+                                        <td className=' py-5 border-b border-gray-200 bg-white text-sm'>
+                                            {
+                                                singleClass?.title?.length > 20 ? <p className='text-gray-900 whitespace-no-wrap'>{singleClass.title.slice(0, 20)} <span className="text-primary semifont-bold cursor-pointer">More...</span></p>
+                                                    :
+                                                    <p>{singleClass.title}</p>
+                                            }
                                         </td>
-                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            <p className='text-gray-900 whitespace-no-wrap'>{singleClass.email || 'NOT FUND'}</p>
+                                        <td className=' py-5 border-b border-gray-200 bg-white text-sm'>
+                                            <p className='px-5 text-gray-900 whitespace-no-wrap'>{singleClass.teacherEmail}</p>
                                         </td>
-                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                            <p className='text-gray-900 whitespace-no-wrap'>{singleClass.description}</p>
+                                        <td className=' py-5 border-b border-gray-200 bg-white text-sm'>
+                                            {
+                                                singleClass?.description?.length > 20 ? <p className='text-gray-900 whitespace-no-wrap'>{singleClass.description.slice(0, 20)} <span className="text-primary semifont-bold cursor-pointer">More...</span></p>
+                                                    :
+                                                    <p>{singleClass.description}</p>
+                                            }
                                         </td>
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                             <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
@@ -131,12 +141,12 @@ const AllClass = () => {
                                             </span>
                                         </td>
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                           
-                                                <button
+
+                                            <button
                                                 disabled={singleClass?.status === "reject"}
-                                                onClick={()=>handleReject(singleClass._id)}
+                                                onClick={() => handleReject(singleClass._id)}
                                                 className='btn-sm bg-orange-100 rounded-full disabled:cursor-not-allowed'>Reaject</button>
-                                    
+
                                         </td>
 
                                         {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -151,14 +161,14 @@ const AllClass = () => {
                                             </span>
                                         </td> */}
                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                                {/* <span
+                                            {/* <span
                                                     aria-hidden='true'
                                                     className='absolute inset-0 bg-green-300 rounded-full'
                                                 ></span> */}
-                                                <button
-                                                    disabled={singleClass?.status !== "acceped" || singleClass?.status === "reject"}
-                                                    onClick={()=>handleSeeProgaess(singleClass._id)}
-                                                    className={`${singleClass?.status === "pending" || singleClass?.status === "reject" ? 'cursor-not-allowed btn btn-sm rounded-full' : 'btn-sm cursor-pointer px-3 py-1 font-semibold bg-green-300 rounded-full'}`}>SeeProgress</button>
+                                            <button
+                                                disabled={singleClass?.status !== "acceped" || singleClass?.status === "reject"}
+                                                onClick={() => handleSeeProgaess(singleClass._id)}
+                                                className={`${singleClass?.status === "pending" || singleClass?.status === "reject" ? 'cursor-not-allowed btn btn-sm rounded-full' : 'btn-sm cursor-pointer px-3 py-1 font-semibold bg-green-300 rounded-full'}`}>SeeProgress</button>
                                         </td>
                                         {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                             <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>

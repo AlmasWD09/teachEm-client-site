@@ -7,6 +7,7 @@ import useTheme from "../../../../hooks/useTheme";
 
 const TeacherRequest = () => {
     const theme = useTheme()
+    console.log(theme);
     const [requestData, refetch] = useRequeste()
     const axiosSecure = useAxiosSecure()
     console.log(requestData);
@@ -18,6 +19,7 @@ const TeacherRequest = () => {
             status: 'acceped',
         }
         const { data } = await axiosSecure.patch(`/requested/api/role/update/${id}`, requestInfo)
+        console.log(data);
         refetch()
 
 
@@ -26,6 +28,7 @@ const TeacherRequest = () => {
             role: 'teacher',
         }
         const { res } = await axiosSecure.patch(`/user/api/role/${email}`, userRoleUpdate)
+        console.log(res);
         refetch()
     }
 
@@ -134,8 +137,15 @@ const TeacherRequest = () => {
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                 <p className='text-gray-900 whitespace-no-wrap'>{reqData?.experience}</p>
                                             </td>
-                                            <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                                            {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                 <p className='text-gray-900 whitespace-no-wrap'>{reqData?.title}</p>
+                                            </td> */}
+                                            <td className=' py-5 border-b border-gray-200 bg-white text-sm'>
+                                                {
+                                                    reqData?.title?.length > 20 ? <p className='text-gray-900 whitespace-no-wrap'>{reqData.title.slice(0, 20)} <span className="text-primary font-semibold cursor-pointer">More...</span></p>
+                                                        :
+                                                        <p>{reqData.title}</p>
+                                                }
                                             </td>
                                             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                 <p className='text-gray-900 whitespace-no-wrap'>{reqData?.category}</p>

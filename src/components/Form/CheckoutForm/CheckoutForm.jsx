@@ -100,9 +100,10 @@ const CheckoutForm = ({ singleClass, closeModal,refetch }) => {
         refetch();
         if(data.insertedId){
           toast.success('Enroll succefully')
-          setTimeout(() =>{
+          // setTimeout(() =>{
             navigate("/dashboard/my-enroll-class");
-          },2000)
+            refetch()
+          // },2000)
         }
         else{
           toast.error(error.message)
@@ -156,5 +157,6 @@ const CheckoutForm = ({ singleClass, closeModal,refetch }) => {
 CheckoutForm.propTypes = {
   singleClass: PropTypes.object,
   closeModal: PropTypes.func,
+  refetch: PropTypes.func,
 };
 export default CheckoutForm;

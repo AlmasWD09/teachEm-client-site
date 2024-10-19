@@ -12,7 +12,8 @@ import { useState } from "react";
 const OurCourses = () => {
     const [feedbackData] = useFeedback();
     const [progress, setProgress] = useState(0);
-    console.log(setProgress);
+
+    console.log(feedbackData);
     const settings = {
         dots: true,
         infinite: true,
@@ -55,7 +56,7 @@ const OurCourses = () => {
     };
     return (
         <>
-            <section className='mt-20'>
+            <section className='mt-20 bg-primaryGray py-16'>
                 <Container>
                     <div className="text-center">
                         <h1 className="text-2xl font-bold text-primary capitalize lg:text-3xl">Student Feedback</h1>
@@ -70,14 +71,14 @@ const OurCourses = () => {
                                 feedbackData.map((singleData, idx) => {
                                     return (
                                         <div key={idx}
-                                            className=" bg-primaryGray rounded-lg shadow-lg " >
+                                            className="h-[350px] bg-white overflow-hidden rounded-lg" >
                                             <img
-                                                className=" object-cover w-full lg:h-68"
+                                                className=" object-cover w-full h-48"
                                                 src={singleData.photo}
                                                 alt="avatar" />
                                             <div className="space-y-2 p-4">
-                                                <p className="font-semibold text-gray-800  md:text-xl">{singleData.title}</p>
-                                                <p className="text-sm text-gray-700 dark:text-gray-200">{singleData.name}</p>
+                                                <p className="font-semibold text-gray-800 uppercase  md:text-lg">{singleData.name}</p>
+                                                <p className="text-sm text-gray-700 dark:text-gray-200">{singleData.description}</p>
                                                 <p className="text-sm text-gray-700 dark:text-gray-200">rating : {singleData.rating}</p>
 
                                             </div>

@@ -26,10 +26,10 @@ const ClassDetails = () => {
         setIsOpen(false)
     }
     return (
-        <div className="mt-10 flex justify-center">
+        <div className="pt-24 flex justify-center">
             <div className="bg-white rounded-lg shadow-md dark:bg-gray-800">
                 <img
-                    className="object-cover w-full h-[400px]"
+                    className="object-cover w-full h-[400px] rounded-t-md"
                     src={image}
                     alt="Article"
                 />

@@ -22,8 +22,8 @@ import Details from "../pages/Dashboard/Teacher/Details/Details";
 import ClassDetails from "../pages/AllClassess/ClassDetails/ClassDetails";
 import PrivatRoutes from "./PrivatRoutes";
 import SeePrograess from "../pages/Dashboard/Admin/SeePrograess/SeePrograess";
-import Contact from "../pages/contact/Contact";
 import CommonLayout from "../pages/Dashboard/commonLayout/CommonLayout";
+import HigestEnrollClassDetails from "../pages/Home/HigestEnrollClass/HigestEnrollClassDetails";
 
 
 const router = createBrowserRouter([
@@ -47,16 +47,18 @@ const router = createBrowserRouter([
             </PrivatRoutes>
           },
           {
+            path: '/HigestEnrollClass-details/:id',
+            element: <PrivatRoutes>
+              <HigestEnrollClassDetails />
+            </PrivatRoutes>
+          },
+          {
             path:'/teach-on',
             element:<PrivatRoutes>
               <TeachOn />
             </PrivatRoutes>
           },
         ],
-      },
-      {
-        path:'/contact-us',
-        element:<Contact />
       },
       // sign up and login routes
       {

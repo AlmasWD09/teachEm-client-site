@@ -60,7 +60,7 @@ if (res.data.success) {
 
 }
     return (
-        <section className="w-full p-6 lg:mx-auto bg-gray-50 rounded-md shadow-md dark:bg-gray-800 md:mt-20 px-4 mt-10 md:px-8 lg:px-0 lg:mt-4">
+        <section className="w-full p-6 lg:mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800 md:mt-20 px-4 mt-10 md:px-8 lg:px-0 lg:mt-4">
             <form onSubmit={handleSubmit(onSubmit)} className=" p-4">
 
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">

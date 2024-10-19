@@ -77,7 +77,9 @@ const Footer = () => {
                                <div className="flex flex-col space-y-4 ">
                                 <h1 className="text-3xl font-semibold font-lato">Contact Us</h1>
                                 <span className="w-20 h-[3px] rounded-full bg-primary"></span>
-                                <p className="flex items-center gap-2 bg-primary px-4 py-2 md:py-3 rounded-full"><FaLocationDot className="text-xl text-secondery" /> Mymensingh-Fulbaria, Bangladesh</p>
+                                
+                                <p className="flex items-center gap-2 bg-primary px-4 py-2 md:py-3 rounded-full"><FaLocationDot className="text-xl text-secondery lg:-mt-4" /> Mymensingh-Fulbaria, Bangladesh</p>
+
                                 <p className="flex items-center gap-2 bg-primary px-4 py-2 md:py-3 rounded-full"><IoCallSharp className="text-xl text-secondery" /> +01704995802</p>
                                 <p className="flex items-center gap-2 bg-primary px-4 py-2 md:py-3 rounded-full"><MdEmail className="text-xl text-secondery mr-1" />skalmas634@gmail.com</p>
                             </div>

@@ -5,7 +5,7 @@ import DashboardNav from "../Shared/dashboardNav/DashboardNav";
 const DashboardLayout = () => {
   return (
     <>
-<DashboardNav />
+      <DashboardNav />
       <div className=" flex flex-col lg:flex-row gap-4 ">
         {/* sidebar */}
         <div className="w-full lg:w-[25%] lg:h-screen lg:fixed  left-0  lg:px-4 bg-white z-10 ">
@@ -13,7 +13,7 @@ const DashboardLayout = () => {
         </div>
 
         {/* outlet */}
-        <div className="flex-1 lg:ml-[25%] lg:mr-4 lg:mt-4 h-screen  overflow-y-auto rounded-b-md ">
+        <div className="flex-1 lg:ml-[25%] lg:mr-4 lg:mt-4 overflow-y-hidden rounded-b-md ">
           <Outlet />
         </div>
 
