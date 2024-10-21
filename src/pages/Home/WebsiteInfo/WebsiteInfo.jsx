@@ -21,7 +21,7 @@ const WebsiteInfo = () => {
     return (
         <>
             <ScrollTrigger onEnter={() => setCounterState(true)} onExit={() => setCounterState(false)}>
-                <div className="bg-primaryGray  py-8 lg:mt-20">
+                <div className="bg-primaryGray  py-7 lg:mt-20">
                     <Container>
                         <div className=" flex flex-col md:flex-row justify-center md:justify-evenly gap-20 md:gap-0 text-center py-10">
                             <div className="flex flex-col justify-center items-center px-10 space-y-4">
