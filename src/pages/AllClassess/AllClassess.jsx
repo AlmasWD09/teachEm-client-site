@@ -1,12 +1,16 @@
 
+import LoadindSpenier from "../../components/LoadindSpenier";
+import useAuth from "../../hooks/useAuth";
 import useStatus from "../../hooks/useStatus";
 import Container from "../../Shared/Container/Container";
 import ClassCrud from "./ClassCrud";
 
 
 const AllClassess = () => {
-  const [statusData] = useStatus()
+  const {loading} = useAuth();
+  const [statusData,isloading] = useStatus()
   console.log(statusData);
+  if(loading || isloading) return <LoadindSpenier />
   return (
     <>
       <Container>
