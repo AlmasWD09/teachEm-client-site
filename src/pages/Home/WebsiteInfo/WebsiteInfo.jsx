@@ -23,7 +23,7 @@ const WebsiteInfo = () => {
     return (
         <>
             <ScrollTrigger onEnter={() => setCounterState(true)} onExit={() => setCounterState(false)}>
-                <div className="bg-primaryGray  py-7 lg:mt-20">
+                <div className="bg-primaryGray dark:bg-gray-900  py-7 lg:mt-20">
                     <Container>
                         <div className=" flex flex-col md:flex-row justify-center md:justify-evenly gap-20 md:gap-0 text-center py-10">
                             <div className="flex flex-col justify-center items-center px-10 space-y-4">
@@ -33,7 +33,7 @@ const WebsiteInfo = () => {
                                         {totalData.user}
                                     </CountUp>
                                 }
-                                <p className="text-center text-base lg:text-lg text-gray-600">total users!</p>
+                                <p className="text-center text-base lg:text-lg text-gray-600 dark:text-white">total users!</p>
                             </div>
 
 
@@ -44,7 +44,7 @@ const WebsiteInfo = () => {
                                         {totalData.classes}
                                     </CountUp>
                                 }
-                                <p className="text-center text-base lg:text-lg text-gray-600">total classes!</p>
+                                <p className="text-center text-base lg:text-lg text-gray-600 dark:text-white">total classes!</p>
                             </div>
 
                             <div className="flex flex-col justify-center items-center px-10 space-y-4">
@@ -55,7 +55,7 @@ const WebsiteInfo = () => {
                                         {totalData.enroll}
                                     </CountUp>
                                 }
-                                <p className="text-center text-base lg:text-lg text-gray-600">total enroll!</p>
+                                <p className="text-center text-base lg:text-lg text-gray-600 dark:text-white">total enroll!</p>
                             </div>
                         </div>
                     </Container>

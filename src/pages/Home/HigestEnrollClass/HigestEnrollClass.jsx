@@ -16,7 +16,7 @@ const HigestEnrollClass = () => {
                     <div>
                         <div className="text-center">
                             <h1 className="text-2xl font-bold text-primary capitalize lg:text-3xl">Our Best Class</h1>
-                            <p className="max-w-lg mx-auto mt-4 text-gray-500">
+                            <p className="max-w-lg mx-auto mt-4 text-gray-500 dark:text-white">
                                 Our course offers advanced techniques, engaging content, and interactive learning, attracting many students.
                             </p>
                         </div>

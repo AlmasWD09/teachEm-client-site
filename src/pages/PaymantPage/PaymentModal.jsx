@@ -34,7 +34,7 @@ const PaymentModal = ({ closeModal, isOpen, singleClass, refetch }) => {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <DialogPanel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            <DialogPanel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-gray-900 dark:border dark:border-white p-6 text-left align-middle shadow-xl transition-all">
                                 <DialogTitle
                                     as="h3"
                                     className="text-lg font-medium text-center leading-6 text-gray-900"
@@ -42,24 +42,24 @@ const PaymentModal = ({ closeModal, isOpen, singleClass, refetch }) => {
                                     Review Info Before Reserve
                                 </DialogTitle>
                                 <div className="mt-2">
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-gray-500 dark:text-white">
                                         Title: {singleClass?.title}
                                     </p>
                                 </div>
                                 <div className="mt-2">
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-gray-500 dark:text-white">
                                         Name : {singleClass?.name}
                                     </p>
                                 </div>
 
                                 <div className="mt-2">
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-gray-500 dark:text-white">
                                         Email : {singleClass?.email}
                                     </p>
                                 </div>
 
                                 <div className="mt-2">
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-gray-500 dark:text-white">
                                         Price: $ {singleClass?.price}
                                     </p>
                                 </div>

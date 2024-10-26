@@ -33,10 +33,10 @@ const FeedbackModal = ({ isOpen, setIsOpen, }) => {
         }
     }
     return (
-        <div className="bg-gray-100">
-            <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50 bg-gray-100">
+        <div className="bg-gray-100 dark:bg-gray-900">
+            <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50 bg-gray-100 dark:bg-gray-900 dark:border dark:border-gray-600">
                 <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-                    <DialogPanel className="lg:max-w-6xl space-y-4 border bg-white p-12">
+                    <DialogPanel className="lg:max-w-6xl space-y-4 border bg-white dark:bg-gray-900 dark:border dark:border-gray-600 rounded-md p-12">
                         <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
                             <div>
                                 <label className="text-gray-700 dark:text-gray-200">rating</label>

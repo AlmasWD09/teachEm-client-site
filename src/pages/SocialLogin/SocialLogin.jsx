@@ -31,7 +31,8 @@ const SocialLogin = () => {
                     status: 'pending',
                     role: 'student'
                 }
-                const { responce } = axiosPublic.put('/user/api/create', userInfo)
+                const responce  = axiosPublic.put('/user/api/create', userInfo)
+                console.log(responce);
             })
 
     }
@@ -42,7 +43,7 @@ const SocialLogin = () => {
                     <button
                         type="button"
                         onClick={() => handleSocialLogin(googleLogin)}
-                        className="w-full px-6 py-2 mx-2 text-sm font-medium border transition-colors duration-300 transform  rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
+                        className="w-full px-6 py-2 mx-2 text-sm font-medium border dark:border-gray-600 transition-colors duration-300 transform  rounded-lg hover:bg-secondery focus:bg-secondery focus:outline-none hover:border-secondery"
                     >
                         <span className="flex items-center justify-center"><FcGoogle className="mx-2 text-2xl"/> Sign in with Google</span>
                     </button>

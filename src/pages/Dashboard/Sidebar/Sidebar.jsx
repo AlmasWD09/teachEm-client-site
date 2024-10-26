@@ -22,7 +22,7 @@ const Sidebar = () => {
     return (
 
         <>
-            <div className=" text-gray-800 lg:bg-gray-100 lg:pb-8 lg:shadow lg:border lg:p-4 lg:rounded-b-md ">
+            <div className="text-gray-800 lg:bg-gray-100 dark:bg-gray-900  lg:pb-8 lg:shadow lg:border dark:lg:border-gray-600 lg:p-4 lg:rounded-b-md">
                 {/* dashboar navbar */}
                 <div className="flex justify-between items-center px-3 py-3 fixed w-full bg-seconderyGray lg:hidden">
                     <div className="">
@@ -49,7 +49,7 @@ const Sidebar = () => {
                 </div>
 
                 {/* Mobile Menu open: "block", Menu closed: "hidden" */}
-                <div className={`mt-[74px] lg:mt-0 absolute flex flex-col lg:hidden text-gray-800 bg-gray-100 pb-8 shadow border p-4 rounded-b-md w-[90%] z-20 transition-all duration-300 ease-in-out 
+                <div className={`mt-[74px] lg:mt-0 absolute flex flex-col lg:hidden text-gray-800 dark:text-white bg-gray-100 dark:bg-gray-900 pb-8 shadow border p-4 rounded-b-md w-[90%] z-20 transition-all duration-300 ease-in-out 
              ${isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'
                     }`}
                 >
@@ -95,7 +95,7 @@ const Sidebar = () => {
 
                     {/* user---> Home/Profile/Logout menu */}
                     <div className="lg:mt-20">
-                        <hr />
+                        <hr  className="dark:lg:border-gray-600"/>
                         {/* Home Menu */}
                         <HomeDashboard />
 

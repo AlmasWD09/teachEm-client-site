@@ -12,9 +12,7 @@ const UserProfileDashboard = ({ role }) => {
                     <NavLink
                         to='/dashboard/student-profile'
                         className={({ isActive }) =>
-                            `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                            }`
-                        }
+                            `flex items-center px-4 py-2 my-5 rounded-md transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 dark:hover:text-gray-600 ${isActive ? 'bg-gray-300   text-gray-700' : 'text-gray-600 dark:text-white'}`}
                     >
                         <FcSettings className='w-5 h-5' />
 
@@ -31,9 +29,7 @@ const UserProfileDashboard = ({ role }) => {
                     <NavLink
                         to='/dashboard/teacher-profile'
                         className={({ isActive }) =>
-                            `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                            }`
-                        }
+                            `flex items-center px-4 py-2 my-5 rounded-md transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 dark:hover:text-gray-600 ${isActive ? 'bg-gray-300   text-gray-700' : 'text-gray-600 dark:text-white'}`}
                     >
                         <FcSettings className='w-5 h-5' />
 
@@ -50,9 +46,7 @@ const UserProfileDashboard = ({ role }) => {
                     <NavLink
                         to='/dashboard/admin-profile'
                         className={({ isActive }) =>
-                            `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300  hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                            }`
-                        }
+                            `flex items-center px-4 py-2 my-5 rounded-md transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 dark:hover:text-gray-600 ${isActive ? 'bg-gray-300   text-gray-700' : 'text-gray-600 dark:text-white'}`}
                     >
                         <FcSettings className='w-5 h-5' />
 

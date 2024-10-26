@@ -12,14 +12,14 @@ const HigestEnrollClassCrud = ({ singleClass }) => {
     return (
         <>
             <div>
-                <div className="bg-white ">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow ">
+                <div className="bg-white rounded-lg">
+                    <div className="bg-white dark:bg-gray-900 border border-gray-200 rounded-lg shadow ">
                         <img className="rounded-t-lg w-full h-[300px] object-cover object-center" src={image} alt="" />
                         <div className="p-5">
                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
 
                             {
-                                description?.length > 50 ? <p className='font-normal text-gray-700 dark:text-gray-400'>{description.slice(0, 50)}
+                                description?.length > 50 ? <p className='font-normal text-gray-700 dark:text-white'>{description.slice(0, 50)}
                                 <span onClick={() => handleDetails(_id)} className="text-primary semifont-bold cursor-pointer">More...</span></p>
                                     :
                                     <p>{description}</p>

@@ -34,7 +34,7 @@ const axiosSecure = useAxiosSecure()
         }
     }
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md pt-20 lg:pt-24">
+        <section className="max-w-4xl p-6 mx-auto bg-white dark:bg-gray-900 dark:border dark:border-white rounded-md shadow-md pt-20 lg:pt-24">
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
 
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">

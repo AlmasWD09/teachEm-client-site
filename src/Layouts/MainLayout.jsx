@@ -7,9 +7,9 @@ import ScrollTopButton from "../components/ScrollTopButton";
 
 const MainLayout = () => {
     return (
-        <div className=''>
+        <div className='dark:bg-gray-900'>
         <Navbar />
-        <div className="min-h-[calc(100vh-333px)]">
+        <div className="min-h-[calc(100vh-333px)] dark:bg-gray-900">
         <Outlet />
         </div>
         <Footer />

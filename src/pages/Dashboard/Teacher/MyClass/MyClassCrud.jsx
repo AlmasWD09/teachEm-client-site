@@ -44,7 +44,7 @@ const MyClassCrud = ({ singleClass, closeModal, refetch }) => {
     return (
         <>
             <div >
-                <div className='relative flex flex-col lg:flex-row bg-white border border-gray-200 rounded-lg shadow  md:max-h-[550px] hover:bg-gray-100'>
+                <div className='relative flex flex-col lg:flex-row bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-600 rounded-lg shadow  md:max-h-[550px] hover:bg-gray-100'>
                     <div className='relative lg:w-full'>
                         <img className='object-cover w-full rounded-t-lg h-full lg:w-96 md:rounded-none md:rounded-t-lg' src={image} alt="" />
                         <span className='absolute bg-secondery text-white  px-2 py-2 flex justify-center items-center top-0 rounded-l-md'>{status}</span>

@@ -60,7 +60,7 @@ if (res.data.success) {
 
 }
     return (
-        <section className="w-full p-6 lg:mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800 md:mt-20 px-4 mt-10 md:px-8 lg:px-0 lg:mt-0">
+        <section className="w-full p-6 lg:mx-auto bg-gray-100 rounded-md shadow-md dark:bg-gray-800  md:mt-20 px-4 mt-10 md:px-8 lg:px-0 lg:mt-0">
             <form onSubmit={handleSubmit(onSubmit)} className=" p-4">
 
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
@@ -83,13 +83,13 @@ if (res.data.success) {
 
 
                     <div>
-                        <label htmlFor="image" className="block text-sm text-gray-500 dark:text-gray-300">Image</label>
+                        <label htmlFor="image" className="block text-sm text-gray-500 dark:text-gray-300 outline-none">Image</label>
                         <input
                             type="file"
                             name="image"
                             id="image"
                             {...register("image", { required: true })}
-                            className="block w-full px-3 py-2 mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg file:bg-gray-200 file:text-gray-700 file:text-sm file:px-4 file:py-1 file:border-none file:rounded-full dark:file:bg-gray-800 dark:file:text-gray-200 dark:text-gray-300 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-40 dark:border-primary dark:bg-gray-900 dark:focus:border-primary"
+                            className="block w-full px-3 py-2 mt-2 text-sm text-gray-600 bg-white border border-gray-200 rounded-lg file:bg-gray-200 file:text-gray-700 file:text-sm file:px-4 file:py-1 file:border-none file:rounded-full dark:file:bg-gray-600 dark:file:text-gray-200 dark:text-gray-300 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-primary focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-800 dark:focus:border-primary"
                         />
                     </div>
 

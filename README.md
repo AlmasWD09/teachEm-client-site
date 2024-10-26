@@ -14,16 +14,11 @@
 )
 
 ## wibsite features
-- user loging sistem
-- routing anothe pages
-- user class create
-- user class delete
-- user class update
-- routing system. for example: student, teacher, admin
-- routing system conditionaly user role system
-- image upload in imageBB
-- client-site and server-site reandring
-- user pay button click and payment system add
+- The student will be able to enroll in courses and give feedback.
+- To enroll, the student must complete the payment through Stripe.
+- The teacher will be able to add and update classes.
+- admin can easily handle all user menagement and he also access to chenge all class update & delete.
+
 
   
 

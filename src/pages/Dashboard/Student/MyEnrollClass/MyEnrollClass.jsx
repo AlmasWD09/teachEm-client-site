@@ -24,7 +24,7 @@ const MyEnrollClass = () => {
                 {
                     enrollClass.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {
-                            enrollClass.map(singleClass => <div className="max-w-sm overflow-hidden border-2 rounded-lg shadow-2xl dark:bg-gray-800"
+                            enrollClass.map(singleClass => <div className="max-w-sm overflow-hidden border dark:border-gray-600 rounded-lg shadow-2xl dark:bg-gray-800"
                                 key={singleClass._id}
                             >
                                 <img
@@ -33,7 +33,7 @@ const MyEnrollClass = () => {
                                     alt="avatar"
                                 />
 
-                                <div className="space-y-2 p-4">
+                                <div className="space-y-2 p-4 dark:bg-gray-900">
                                     <p className="text-sm text-gray-700 dark:text-gray-200">{singleClass.title}</p>
                                     <p className="text-sm text-gray-700 dark:text-gray-200">Post: {singleClass.paymentUserName}</p>
                                     <button

@@ -20,9 +20,11 @@ const SignUp = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm()
 
 
+    const handleGoBack = () => {
+        navigate(-1)
+    }
 
-
-    const onSubmit =async (data) => {
+    const onSubmit = async (data) => {
         // createUser
         creatUser(data.email, data.password)
             .then(result => {
@@ -35,16 +37,16 @@ const SignUp = () => {
                 setUser({ ...loggendUser, photoURL: data.photo, displayName: data.name })
 
             })
-            const userInfo = {
-                email: data.email,
-                name : data.name,
-                photo : data.photo,
-                status: 'pending',
-                role : data.role,
-            }
+        const userInfo = {
+            email: data.email,
+            name: data.name,
+            photo: data.photo,
+            status: 'pending',
+            role: data.role,
+        }
 
-            const { responce } = await axiosPublic.put('/user/api/create', userInfo)
-            // console.log(responce);
+        const { responce } = await axiosPublic.put('/user/api/create', userInfo)
+        // console.log(responce);
 
     }
 
@@ -55,9 +57,9 @@ const SignUp = () => {
             </Helmet>
             <section className="bg-white dark:bg-slate-800">
                 <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-                    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-8 rounded-lg">
+                    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-8 rounded-lg dark:border dark:border-gray-600">
                         <div className="">
-                            <h2 className=" pb-4 text-4xl font-semibold text-center text-gray-800 capitalize border-blue-500 dark:border-blue-400 dark:text-white">Please SignUp</h2>
+                            <h2 className=" pb-4 text-4xl font-semibold text-center text-gray-800 capitalize border-primary dark:border-primary dark:text-white">Please SignUp</h2>
                         </div>
 
                         {/* user name */}
@@ -74,9 +76,9 @@ const SignUp = () => {
 
                         {/* user role */}
                         <div className='relative flex items-center mt-8'>
-                            <select name="role" className="select select-bordered w-full" {...register("role", { required: true })}>
-                                <option value="student" selected>Student</option>
-                                <option value="teacher">Teacher</option>
+                            <select name="role" className="select select-bordered w-full dark:bg-gray-900" {...register("role", { required: true })}>
+                                <option className="dark:bg-gray-900" value="student" selected>Student</option>
+                                <option className="dark:bg-gray-900" value="teacher">Teacher</option>
                             </select>
                         </div>
 
@@ -121,7 +123,7 @@ const SignUp = () => {
                                 })} />
 
                             {/* eye icon setup */}
-                            <p className="absolute top-6 right-3 cursor-pointer"
+                            <p className="absolute top-4 right-3 cursor-pointer"
                                 onClick={() => setShowPassword(!showPassword)}>
                                 {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
                             </p>
@@ -135,11 +137,15 @@ const SignUp = () => {
                             <button type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                                 Sign Up
                             </button>
-
+                            
                             <div className="mt-6 text-center ">
                                 <p className="text-sm ">{"Don't Have an account"}?
-                                    <Link to='/login' className="text-blue-500 font-semibold dark:text-blue-400"> Login</Link> </p>
+                                    <Link to='/login' className="text-primary font-semibold dark:text-primary"> Login</Link> </p>
                             </div>
+                            <button
+                            onClick={handleGoBack}
+                            className="border dark:border-gray-600 hover:border-secondery px-4 py-2 rounded-lg font-semibold my-3 hover:bg-secondery hover:text-white">Go Back
+                        </button>
                         </div>
                     </form>
                 </div>

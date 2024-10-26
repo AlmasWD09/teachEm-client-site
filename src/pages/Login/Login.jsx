@@ -5,19 +5,21 @@ import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
-import useTheme from "../../hooks/useTheme";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { useState } from "react";
 
 
 const Login = () => {
     const { logIn } = useAuth()
-    const theme = useTheme()
     const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, formState: { errors }, } = useForm()
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+
+    const handleGoBack = () => {
+        navigate(-1)
+    }
 
     // handle login form value
     const onSubmit = (data) => {
@@ -28,7 +30,7 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .then(err => {
-                console.log(err);
+                toast.error(err.message);
             })
     }
 
@@ -40,9 +42,9 @@ const Login = () => {
             <section className="bg-white dark:bg-slate-800">
                 <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
 
-                    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-8 rounded-lg">
+                    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md dark:border dark:border-gray-600 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-8 rounded-lg">
                         <div className="">
-                            <h2 className="pb-4 text-4xl font-semibold text-center text-gray-800 capitalize border-blue-500 dark:border-blue-400 dark:text-white">Please Login</h2>
+                            <h2 className="pb-4 text-4xl font-semibold text-center text-gray-800 capitalize border-primary dark:border-primary dark:text-white">Please Login</h2>
                         </div>
                         <div className="relative flex items-center mt-6">
                             <span className="absolute">
@@ -51,7 +53,7 @@ const Login = () => {
                                 </svg>
                             </span>
 
-                            <input type="email" name="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" {...register("email", { required: true })} />
+                            <input type="email" name="email" className="block w-full py-3 text-gray-700 bg-white dark:bg-gray-900 border rounded-lg px-11  dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" {...register("email", { required: true })} />
                         </div>
 
                         <div className="relative flex items-center mt-4">
@@ -61,15 +63,17 @@ const Login = () => {
                                 </svg>
                             </span>
 
-                            <input type="password" name="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"  {...register("password",
-                                {
-                                    required: true,
-                                    minLength: 6,
-                                    maxLength: 20,
-                                    pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/
-                                })} />
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:ring-priborder-primary focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"  {...register("password",
+                                    {
+                                        required: true,
+                                        minLength: 6,
+                                        maxLength: 20,
+                                        pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/
+                                    })} />
                             {/* eye icon setup */}
-                            <p className="absolute top-6 right-3 cursor-pointer"
+                            <p className="absolute top-4 right-3 cursor-pointer"
                                 onClick={() => setShowPassword(!showPassword)}>
                                 {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
                             </p>
@@ -80,17 +84,21 @@ const Login = () => {
                         <small>{errors.password?.type === 'pattern' && <span className="text-red-400">at least one uppercase letter, one lowercase letter, one special characte</span>}</small>
 
                         <div className="mt-6">
-                            <button type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                            <button type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-lg hover:bg-secondery focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50">
                                 Login
                             </button>
 
                             <div className="mt-6 text-center ">
                                 <p className="text-sm ">Already have an account?
-                                    <Link to='/signUp' className="text-blue-500 font-semibold dark:text-blue-400"> SignUp</Link> </p>
+                                    <Link to='/signUp' className="text-primary font-semibold dark:text-primary"> SignUp</Link> </p>
                             </div>
                         </div>
 
                         <SocialLogin />
+                        <button
+                            onClick={handleGoBack}
+                            className="border dark:border-gray-600 hover:border-secondery px-4 py-2 rounded-lg font-semibold my-3 hover:bg-secondery hover:text-white">Go Back
+                        </button>
                     </form>
                 </div>
             </section>
